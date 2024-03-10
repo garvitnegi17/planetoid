@@ -9,3 +9,4 @@ Here's the list of games decided so far:
 #### :octocat: 11-03-2024
 ---
 - Completed design of the project.
+![](Planetoid.png)
