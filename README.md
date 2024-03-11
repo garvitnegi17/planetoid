@@ -14,3 +14,12 @@ Here's the list of games decided so far:
 ---
 - Completed design of the project.
 ![](Planetoid.png)
+
+---
+#### :octocat: 12-03-2024
+---
+- Developed landing page.
+- Flames to be added.
+- Font for palnetoid to be searched.
+
+`Happy Coding :)`
