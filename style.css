@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.87);
+    font-family: "Megrim", system-ui;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+}
+.stars{
+    position: absolute;
+    z-index: -5;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(https://cdn.esahubble.org/archives/images/screen/heic1112d.jpg);
+    animation-name: pan;
+    animation-duration: 80s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes pan{
+    0%{
+        background-position: 0% 40%;
+    }
+    50%{
+        background-position: 0% 0%;
+    }
+    100%{
+        background-position: 0% 40%;
+    }
+}
+
+.planet {
+    width: 140vw;
+    height: 140vw;
+    background-image: radial-gradient(#24309F, #4656E5, #31C1FF, cyan);
+    position:fixed;
+    left: -20vw;
+    border-radius: 50%;
+    animation-name: move;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+@keyframes move{
+    0%{
+        bottom: -100vw;
+    }
+    75%{
+        bottom: -110vw;
+    }
+    100%{
+        bottom:-140vw;
+    }
+}
+.rocket {
+    position: absolute;
+    height: 20vh;
+    bottom: 40vw;
+    left: 50vw;
+    transform: translate(-50%);
+    margin-bottom: -4px;
+    animation-name: launch;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+@keyframes launch{
+    0%{
+        bottom: 40vw;
+    }
+    70%{
+        bottom:60vh;
+    }
+    75%{
+        bottom: 57vh;
+    }
+    100%{
+        bottom:120vh;
+    }
+}
+
+.heading {
+    margin-top: 40vh;
+    display: inline;
+    position: absolute;
+    font-weight: 600;
+    margin-left: 50%;
+    transform: translate(-50%);
+    font-size: 1.8rem;
+    animation-name: show;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+@keyframes show{
+    0%{
+        opacity: 0;
+    }
+    67%{
+        opacity: 0;
+    }
+    72%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity:1;
+    }
+}
