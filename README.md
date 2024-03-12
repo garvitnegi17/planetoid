@@ -33,5 +33,7 @@ Here's the list of games decided so far:
 - Added loader and navbar.
 
 ---
-The site is live at [](https://garvitnegi17.github.io/planetoid/).
+
+The site is live [here](https://garvitnegi17.github.io/planetoid/).
+
 `Happy Coding :)`
