@@ -10,7 +10,7 @@ body {
     font-family: "Megrim", system-ui;
 }
 
-.loading{
+.loading {
     margin-top: 40vh;
     margin-left: calc(50% - 30px);
     position: absolute;
@@ -19,26 +19,35 @@ body {
     width: 60px;
     animation: rotate;
     animation-duration: 2s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 2;
     animation-timing-function: linear;
     border-left: 3px solid rgba(255, 153, 0, 0.579);
     border-right: 3px solid #00000000;
     border-top: 3px solid #00000000;
     border-bottom: 3px solid #ffcf104b;
-    border-radius:50%;
+    border-radius: 50%;
+    opacity: 0;
+    animation-delay: 0;
 }
-@keyframes rotate{
-    0%{
+
+@keyframes rotate {
+    0% {
         transform: rotate(0deg);
+        opacity: 1;
     }
-    50%{
+
+    50% {
         transform: rotate(180deg);
+        opacity: 1;
     }
-    100%{
+
+    100% {
         transform: rotate(360deg);
+        opacity: 1;
     }
 }
-.circle{
+
+.circle {
     position: absolute;
     height: 40px;
     width: 40px;
@@ -51,21 +60,38 @@ body {
     z-index: 10;
 }
 
-.small_rocket{
+.small_rocket {
     height: 15px;
     position: absolute;
     transform: rotate(45deg);
-    filter:grayscale(1);
-    left:5px;
+    filter: grayscale(1);
+    left: 5px;
 }
 
 #particles-js {
     position: absolute;
     width: 100%;
     height: 100%;
-    top:0;
+    top: 0;
+    opacity: 1;
+    animation-name: display;
+    animation-delay: 0s;
+    animation-duration: 5s;
 }
-.stars{
+
+@keyframes display{
+    0%{
+        opacity: 0;
+    }
+    80%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.stars {
     position: absolute;
     z-index: -5;
     height: 100vh;
@@ -75,16 +101,29 @@ body {
     animation-duration: 80s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    opacity: 0;
+    animation-delay: 4s;
+    transition-duration: 1s;
 }
-@keyframes pan{
-    0%{
+
+@keyframes pan {
+    0% {
         background-position: 0% 40%;
+        opacity: 0;
     }
-    50%{
+    3% {
+        background-position: 0% 37%;
+        opacity: 1;
+    }
+
+    50% {
         background-position: 0% 0%;
+        opacity: 1;
     }
-    100%{
+
+    100% {
         background-position: 0% 40%;
+        opacity: 1;
     }
 }
 
@@ -92,28 +131,36 @@ body {
     width: 140vw;
     height: 140vw;
     background-image: radial-gradient(#24309F, #4656E5, #31C1FF, cyan);
-    position:fixed;
+    position: fixed;
     left: -20vw;
     border-radius: 50%;
     animation-name: move;
     animation-duration: 5s;
-    animation-delay: 1s;
+    animation-delay: 4s;
     opacity: 0;
 }
-@keyframes move{
-    0%{
+
+@keyframes move {
+    0% {
+        bottom: -100vw;
+        opacity: 0;
+    }
+    8% {
         bottom: -100vw;
         opacity: 1;
     }
-    75%{
+
+    75% {
         bottom: -110vw;
         opacity: 1;
     }
-    100%{
-        bottom:-140vw;
+
+    100% {
+        bottom: -140vw;
         opacity: 1;
     }
 }
+
 .rocket {
     position: absolute;
     height: 20vh;
@@ -123,24 +170,32 @@ body {
     margin-bottom: -4px;
     animation-name: launch;
     animation-duration: 5s;
-    animation-delay: 1s;
+    animation-delay: 4s;
     opacity: 0;
 }
-@keyframes launch{
-    0%{
+
+@keyframes launch {
+    0% {
+        bottom: 40vw;
+        opacity: 0;
+    }
+    8% {
         bottom: 40vw;
         opacity: 1;
     }
-    70%{
-        bottom:60vh;
+
+    70% {
+        bottom: 60vh;
         opacity: 1;
     }
-    75%{
+
+    75% {
         bottom: 57vh;
         opacity: 1;
     }
-    100%{
-        bottom:120vh;
+
+    100% {
+        bottom: 120vh;
         opacity: 1;
     }
 }
@@ -151,104 +206,124 @@ body {
     transform: translate(-50%);
     display: inline;
     position: absolute;
-    font-weight: 600;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     animation-name: show;
     animation-duration: 5s;
-    animation-delay: 1s;
+    animation-delay: 4s;
     opacity: 0;
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
-@keyframes show{
-    0%{
+
+@keyframes show {
+    0% {
         opacity: 0;
     }
-    67%{
+
+    67% {
         opacity: 0;
     }
-    72%{
+
+    72% {
         opacity: 0.3;
     }
-    90%{
+
+    90% {
         opacity: 1;
     }
-    100%{
-        opacity:0;
+
+    100% {
+        opacity: 0;
     }
 }
 
-.navbar{
+.navbar {
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100vw;
-    height: 40px;
+    height: 50px;
     display: flex;
-    background-image: linear-gradient(to right ,#00000000,#666666);
+    background-image: linear-gradient(to right, #00000000, #666666);
     animation-name: dropdown;
-    animation-duration: 7s;
+    animation-duration: 10s;
     animation-delay: 0s;
     opacity: 1;
 }
 
 
-@keyframes dropdown{
-    0%{
+@keyframes dropdown {
+    0% {
         margin-top: -40px;
         opacity: 0;
     }
-    75%{
+
+    90% {
         margin-top: -40px;
         opacity: 0;
     }
-    90%{
+
+    95% {
         margin-top: 0px;
         opacity: 1;
     }
-    100%{
+
+    100% {
         margin-top: 0px;
         opacity: 1;
     }
 }
-.hamburger{
+
+.hamburger {
     position: absolute;
     right: 10px;
+    margin-top: 7px;
 }
-.line{
+
+.line {
     width: 25px;
-    height:1px;
+    height: 1px;
     background-color: white;
     margin-top: 8px;
 }
-#l1{
+
+#l1 {
     margin-top: 10px;
 }
-.title{
+
+.title {
     font-size: 1.7rem;
     margin-top: 7px;
     opacity: 1;
     animation-name: slide;
     animation-duration: 10s;
-    animation-delay: 0s;
+    animation-delay: 3.5s;
     font-weight: 600;
     margin-left: 10px;
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-@keyframes slide{
-    0%{
+@keyframes slide {
+    0% {
         margin-left: -9rem;
         opacity: 0;
     }
-    54.5%{
+
+    54.5% {
         margin-left: -9rem;
         opacity: 0;
     }
-    76.5%{
+
+    76.5% {
         margin-left: 10px;
         opacity: 1;
     }
-    100%{
+
+    100% {
         margin-left: 10px;
         opacity: 1;
     }
 }
-
