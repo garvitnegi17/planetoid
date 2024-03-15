@@ -27,4 +27,19 @@ Here's the list of games decided so far:
 - Flames to be added.
 - Font for palnetoid to be searched.
 
+---
+#### :octocat: 12-03-2024
+---
+- Added loader and navbar.
+
+---
+#### :octocat: 13-03-2024
+---
+- added loading screen.
+- implemented font
+
+---
+
+The site is live [here](https://garvitnegi17.github.io/planetoid/).
+
 `Happy Coding :)`
