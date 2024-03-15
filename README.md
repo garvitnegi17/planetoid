@@ -39,6 +39,10 @@ Here's the list of games decided so far:
 - implemented font
 
 ---
+#### :octocat: 15-03-2024
+---
+- Added homepage
+---
 
 The site is live [here](https://garvitnegi17.github.io/planetoid/).
 
