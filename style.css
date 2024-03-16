@@ -401,7 +401,7 @@ body {
     height: 1.7px;
     width: 14px;
     border-radius: 75%;
-    background-image: linear-gradient(-180deg, white, (176, 160, 160));
+    background-image: linear-gradient(-180deg, white, rgba(176, 160, 160));
     position: absolute;
     margin-left: -50%;
     transform: rotate(-25deg);
