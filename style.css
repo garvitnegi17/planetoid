@@ -397,6 +397,17 @@ body {
 #saturn{
     background-image: linear-gradient(#FDE568,#97883E,#FFED8B);
 }
+#ring {
+    height: 1.7px;
+    width: 14px;
+    border-radius: 75%;
+    background-image: linear-gradient(-180deg, white, (176, 160, 160));
+    position: absolute;
+    margin-left: -50%;
+    transform: rotate(-25deg);
+    transform-origin: center;
+    margin-top: 2.7px;
+}
 #uranus{
     background-color: #46D9BE;
 }
