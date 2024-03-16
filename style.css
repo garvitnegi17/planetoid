@@ -465,6 +465,12 @@ body {
     animation-delay: 0s;
     z-index: -3;
 }
+#home_button{
+    animation-name: glass;
+    animation-duration: 9s;
+    animation-delay: 0s;
+    z-index: 90;
+}
 
 @keyframes glass {
     0% {
