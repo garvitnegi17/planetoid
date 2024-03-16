@@ -42,6 +42,7 @@ Here's the list of games decided so far:
 #### :octocat: 15-03-2024
 ---
 - Added homepage
+- Added rings on Saturn
 ---
 
 The site is live [here](https://garvitnegi17.github.io/planetoid/).
