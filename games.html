@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planetoid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Honk&family=Micro+5&family=Silkscreen:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <div class="stars" id="games_stars"></div>
+    <div class="games">
+        <div class="navbar" id="games_navbar">
+            <p class="title" id="games_title">PLANETOID</p>
+            <div class="hamburger">
+                <div class="line" id="l1"></div>
+                <div class="line" id="l2"></div>
+                <div class="line" id="l3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="planets" id="games_planet">
+        <div class="planet" id="sun"></div>
+        <div class="planet" id="mercury"></div>
+        <div class="planet" id="venus"></div>
+        <div class="planet" id="earth"></div>
+        <div class="planet" id="mars"></div>
+        <div class="planet" id="jupiter"></div>
+        <div class="planet" id="saturn">
+            <div id="ring"></div>
+        </div>
+        <div class="planet" id="uranus"></div>
+        <div class="planet" id="neptune"></div>
+        <img src="images/rocket.png" alt="" class="mini_rocket">
+    </div>
+    <div class="list">
+        <div class="glass" id="games_glass">
+
+            <img src="https://m.media-amazon.com/images/I/61M3rDwh4qL.png" alt="" class="dashboard">
+            <p class="name">Tetris</p>
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, quisquam.</p>
+            <button>PLAY</button>
+        </div>
+        <div class="glass" id="games_glass">
+
+            <img src="https://m.media-amazon.com/images/I/61M3rDwh4qL.png" alt="" class="dashboard">
+            <p class="name">Tetris</p>
+            <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, fuga!</p>
+            <button>PLAY</button>
+        </div>
+        <div class="glass" id="games_glass">
+
+            <img src="https://m.media-amazon.com/images/I/61M3rDwh4qL.png" alt="" class="dashboard">
+            <p class="name">Tetris</p>
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, adipisci!</p>
+            <button>PLAY</button>
+        </div>
+        <div class="glass" id="games_glass">
+
+            <img src="https://m.media-amazon.com/images/I/61M3rDwh4qL.png" alt="" class="dashboard">
+            <p class="name">Tetris</p>
+            <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, quam.</p>
+            <button>PLAY</button>
+        </div>
+    </div>
+    <button class="arrow" id="left"><</button>
+    <button class="arrow" id="right">></button>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -9,9 +9,11 @@ body {
     color: rgba(255, 255, 255, 0.87);
     font-family: "Megrim", system-ui;
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
     opacity: 0;
 }
+
 .loading {
     margin-top: 40vh;
     margin-left: calc(50% - 30px);
@@ -361,7 +363,8 @@ body {
 :root {
     --height: calc(100vh - 100px);
 }
-.sun{
+
+.sun {
     height: 100vh;
     max-width: 100vw;
     overflow-y: scroll;
@@ -523,9 +526,9 @@ body {
     height: 40vh;
     width: 40vh;
     border-radius: 50%;
-    background-image: radial-gradient(yellow,orange,red);
-    position:fixed;
-    top:-10vh;
+    background-image: radial-gradient(yellow, orange, red);
+    position: fixed;
+    top: -10vh;
     right: -25vw;
     animation-name: sun_animation;
     animation-duration: 9s;
@@ -557,4 +560,65 @@ body {
         opacity: 1;
         right: -25vw;
     }
+}
+
+/*====================================GAMES==========*/
+#games_navbar {
+    animation-name: none;
+}
+
+#games_title {
+    animation-name: none;
+}
+
+#games_planet {
+    animation-name: none;
+}
+
+#games_glass {
+    animation-name: none;
+    padding-bottom: 20px;
+}
+
+#games_stars {
+    animation-delay: 0s;
+}
+
+.dashboard {
+    width: 66vw;
+    border-radius: 10px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 1.4rem;
+}
+
+button {
+    padding: 5px 10px 5px 10px;
+    float: right;
+    margin-top: 5px;
+    background-color: #00000000;
+    border: 1px solid white;
+    color: white;
+
+}
+
+.list {
+    display: flex;
+    position: static;
+    overflow-x: scroll;
+}
+
+.arrow {
+    border-radius: 50%;
+    margin-top: 100px;
+}
+#left{
+    float: left;
+    margin-left: 50px;
+}
+#right{
+    margin-right: 30px;
 }
