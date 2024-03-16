@@ -9,9 +9,11 @@ body {
     color: rgba(255, 255, 255, 0.87);
     font-family: "Megrim", system-ui;
 }
-
+::-webkit-scrollbar{
+    opacity: 0;
+}
 .loading {
-    margin-top: 30vh;
+    margin-top: 40vh;
     margin-left: calc(50% - 30px);
     position: absolute;
     background-color: rgba(17, 0, 94, 0);
@@ -208,7 +210,7 @@ body {
 }
 
 .heading {
-    margin-top: 30vh;
+    margin-top: 40vh;
     margin-left: 50%;
     transform: translate(-50%);
     display: inline;
@@ -258,6 +260,7 @@ body {
     animation-delay: 0s;
     backdrop-filter: blur(3px);
     opacity: 1;
+    z-index: 100;
 }
 
 
@@ -358,6 +361,11 @@ body {
 :root {
     --height: calc(100vh - 100px);
 }
+.sun{
+    height: 100vh;
+    max-width: 100vw;
+    overflow-y: scroll;
+}
 
 .planets {
     background-color: black;
@@ -445,13 +453,14 @@ body {
     padding: 20px;
     margin: 20px;
     margin-left: 50px;
-    margin-top: 90px;
+    margin-top: 60px;
     border-radius: 20px;
     backdrop-filter: blur(5px);
     opacity: 1;
     animation-name: glass;
     animation-duration: 9s;
     animation-delay: 0s;
+    z-index: -3;
 }
 
 @keyframes glass {
@@ -511,38 +520,41 @@ body {
 }
 
 .big_sun {
-    position: absolute;
-    overflow: hidden;
-    top: 0vh;
-    right: 0vw;
-    opacity: 1;
-    z-index: -2;
     height: 40vh;
+    width: 40vh;
+    border-radius: 50%;
+    background-image: radial-gradient(yellow,orange,red);
+    position:fixed;
+    top:-10vh;
+    right: -25vw;
     animation-name: sun_animation;
-    animation-duration: 11s;
+    animation-duration: 9s;
     animation-delay: 0s;
+    z-index: -5;
+    box-shadow: 0px 0px 30px rgb(255, 170, 0);
 }
 
 @keyframes sun_animation {
     0% {
         opacity: 0;
         margin-top: -25vh;
-        margin-right: -25vh;
+        right: -50vw;
     }
 
     70% {
         opacity: 0;
         margin-top: -25vh;
-        margin-right: -25vh;
+        right: -50vw;
     }
 
     75% {
         opacity: 1;
+        right: -30vw;
     }
 
     100% {
         margin-top: 0vh;
-        margin-right: 0vw;
         opacity: 1;
+        right: -25vw;
     }
 }
