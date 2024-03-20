@@ -265,7 +265,6 @@ body {
     z-index: 100;
 }
 
-
 @keyframes dropdown {
     0% {
         margin-top: -40px;
@@ -343,21 +342,10 @@ body {
 
 .line {
     transition-duration: 0.4s;
-}
-
-.hamburger:hover #l1 {
     transform-origin: 0%;
-    transform: rotate(45deg);
 }
 
-.hamburger:hover #l3 {
-    transform-origin: 0%;
-    transform: rotate(-45deg);
-}
 
-.hamburger:hover #l2 {
-    opacity: 0;
-}
 
 /*=====================================SUN=========================*/
 :root {
@@ -617,7 +605,6 @@ button {
     overflow-x: scroll;
     transition-duration: 1s;
 }
-
 .arrow {
     border-radius: 50%;
     margin-top: 100px;
@@ -657,3 +644,75 @@ button {
     }
 }
 
+/*===================================NAVBAR===========================*/
+.blur{
+    position: absolute;
+    margin-top: 50px;
+    height: 0;
+    width: 100vw;
+    background-image: linear-gradient(to right, #000000e0, #000000e0);
+    backdrop-filter: blur(10px);
+    transition-duration: 0.2s;
+
+}
+.navbar ul{
+    margin-top: 80px;
+    z-index: 100;
+    margin-left: 0;
+    transform: translate(-50%);
+}
+.credits{
+    position: absolute;
+    top:90vh;
+    left:50vw;
+    transform: translate(-50%);
+    text-align: center;
+    width: max-content;
+    opacity: 0;
+    transition-duration: 0.4s;
+    z-index: 100;
+}
+.credits a{
+    text-decoration: none;
+    color:white;
+    font-weight: 600;
+}
+.navbar ul li{
+    width: 70vw;
+    text-align: center;
+    font-family: "Silkscreen", sans-serif;
+    font-size: 1.2rem;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    color:white;
+    text-decoration: none;
+    list-style: none;
+    padding: 20px;
+}
+.navbar ul li a{
+    color: white;
+    text-decoration: none;
+}
+#navbar_list{
+    opacity: 0;
+    transition-duration: 0.3s;
+}
+
+.show{
+    opacity: 0;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top:0px;
+    right:5px;
+    display: block;
+}
+.hide{
+    opacity: 0;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top:0px;
+    right:5px;
+    display: none;
+}
