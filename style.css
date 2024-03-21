@@ -470,6 +470,7 @@ body {
     animation-duration: 9s;
     animation-delay: 0s;
     z-index: 90;
+    margin-right: 25px;
 }
 
 @keyframes glass {
@@ -583,7 +584,7 @@ body {
 
 #games_glass {
     animation-name: none;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
 #games_stars {
@@ -608,13 +609,13 @@ button {
     background-color: #00000000;
     border: 1px solid white;
     color: white;
-
 }
 
 .list {
     display: flex;
     position: static;
     overflow-x: scroll;
+    transition-duration: 1s;
 }
 
 .arrow {
@@ -624,7 +625,35 @@ button {
 #left{
     float: left;
     margin-left: 50px;
+    transition: all 1s;
 }
 #right{
     margin-right: 30px;
+    transition:all 1s;
 }
+.planet_image{
+    height: 40vh;
+    position: fixed;
+}
+
+#mercury_image{
+    height: 60vh;
+    margin-top:50vh;
+    margin-left:30vw;
+    z-index: -5;
+    animation-name: move_up;
+    animation-duration: 2s;
+}
+@keyframes move_up{
+    0%{
+        margin-top:70vh;
+        margin-left:60vw; 
+        opacity: 0.5;
+    }
+    100%{
+        margin-top:50vh;
+        margin-left:30vw; 
+        opacity: 1;
+    }
+}
+

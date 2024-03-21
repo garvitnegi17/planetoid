@@ -1,3 +1,14 @@
+const buttonRight = document.getElementById('right');
+const buttonLeft = document.getElementById('left');
+
+buttonRight.onclick = function () {
+  document.getElementById('list').scrollLeft += 340;
+};
+buttonLeft.onclick = function () {
+  document.getElementById('list').scrollLeft -= 340;
+};
+
+
 particlesJS("particles-js", {
     "particles": {
       "number": {
