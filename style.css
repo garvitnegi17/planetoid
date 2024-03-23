@@ -265,7 +265,6 @@ body {
     z-index: 100;
 }
 
-
 @keyframes dropdown {
     0% {
         margin-top: -40px;
@@ -343,21 +342,10 @@ body {
 
 .line {
     transition-duration: 0.4s;
-}
-
-.hamburger:hover #l1 {
     transform-origin: 0%;
-    transform: rotate(45deg);
 }
 
-.hamburger:hover #l3 {
-    transform-origin: 0%;
-    transform: rotate(-45deg);
-}
 
-.hamburger:hover #l2 {
-    opacity: 0;
-}
 
 /*=====================================SUN=========================*/
 :root {
@@ -617,7 +605,6 @@ button {
     overflow-x: scroll;
     transition-duration: 1s;
 }
-
 .arrow {
     border-radius: 50%;
     margin-top: 100px;
@@ -631,19 +618,6 @@ button {
     margin-right: 30px;
     transition:all 1s;
 }
-.planet_image{
-    height: 40vh;
-    position: fixed;
-}
-
-#mercury_image{
-    height: 60vh;
-    margin-top:50vh;
-    margin-left:30vw;
-    z-index: -5;
-    animation-name: move_up;
-    animation-duration: 2s;
-}
 @keyframes move_up{
     0%{
         margin-top:70vh;
@@ -651,9 +625,152 @@ button {
         opacity: 0.5;
     }
     100%{
-        margin-top:50vh;
-        margin-left:30vw; 
+        margin-top:50.3vh;
+        margin-left:25vw; 
         opacity: 1;
     }
 }
+#mercury_code{
+    height: 63vh;
+    width: 63vh;
+    background-image: linear-gradient(-45deg, rgb(232, 114, 84), rgb(216, 160, 86),rgb(203, 156, 91), rgb(196, 101, 78)); 
+    border-radius: 50%;
+    position: fixed;
+    z-index: 100;
+    margin-top: 45vh;
+    overflow: hidden;   
+    border: 2px solid white;
+    margin-left: 25%;
+    margin-top: 100%;
+    z-index: -5;
+    animation-name: move_up;
+    animation-duration: 2s;
+}
+.spots{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-image: linear-gradient(-45deg, rgb(241, 132, 78),rgb(251, 213, 76),  rgb(226, 63, 63));
+    border: 2px solid rgba(0, 0, 0, 0.659);
+}
+#spot1{
+    margin-left: 45%;
+}
+#spot2{
+    margin-left: 0%;
+    margin-top: 40%;
 
+}
+#spot3{
+    margin-top: -70%;
+    margin-left: -5%;
+}
+#spot4{
+    margin-left: 40%;
+    margin-top: 25%;
+    width: 150px;
+    height: 75px;
+}
+#spot5{
+    width: 90px;
+    height: 75px;
+    margin-top: -40%;
+    transform: rotate(90deg);
+    margin-left: 15%;
+}
+.small_spot{
+    width: 70px;
+    height: 45px;
+    background-image: radial-gradient(rgb(210, 176, 72), rgb(255, 179, 39), rgb(228, 72, 0));
+    border: 2px solid rgba(0, 0, 0, 0.43);
+    border-radius: 50%;
+}
+#small_spot1{
+    margin-left: 50%;
+    border-radius: 50%;
+    margin-top: -10%;
+    position: absolute;
+    transform: rotate(0deg);
+}
+#small_spot2{
+    margin-left: 20%;
+    margin-top: -30%;
+    position: absolute;
+}
+#small_spot3{
+    transform: rotate(0deg);
+    margin-left: 40%;
+    margin-top: -10%;
+}
+/*===================================NAVBAR===========================*/
+.blur{
+    position: absolute;
+    margin-top: 50px;
+    height: 0;
+    width: 100vw;
+    background-image: linear-gradient(to right, #000000e0, #000000e0);
+    backdrop-filter: blur(10px);
+    transition-duration: 0.2s;
+
+}
+.navbar ul{
+    margin-top: 80px;
+    z-index: 100;
+    margin-left: 0;
+    transform: translate(-50%);
+}
+.credits{
+    position: absolute;
+    top:90vh;
+    left:50vw;
+    transform: translate(-50%);
+    text-align: center;
+    width: max-content;
+    opacity: 0;
+    transition-duration: 0.4s;
+    z-index: 100;
+}
+.credits a{
+    text-decoration: none;
+    color:white;
+    font-weight: 600;
+}
+.navbar ul li{
+    width: 70vw;
+    text-align: center;
+    font-family: "Silkscreen", sans-serif;
+    font-size: 1.2rem;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    color:white;
+    text-decoration: none;
+    list-style: none;
+    padding: 20px;
+}
+.navbar ul li a{
+    color: white;
+    text-decoration: none;
+}
+#navbar_list{
+    opacity: 0;
+    transition-duration: 0.3s;
+}
+
+.show{
+    opacity: 0;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top:0px;
+    right:5px;
+    display: block;
+}
+.hide{
+    opacity: 0;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top:0px;
+    right:5px;
+    display: none;
+}
