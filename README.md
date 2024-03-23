@@ -57,6 +57,10 @@ Here's the list of games decided so far:
 ---
 - Added Hamburger's Content.
 ---
+#### :octocat: 23-03-2024
+---
+- Coded Mercury Image
+---
 
 The site is live [here](https://garvitnegi17.github.io/planetoid/).
 
