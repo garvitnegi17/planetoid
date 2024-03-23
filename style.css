@@ -618,19 +618,6 @@ button {
     margin-right: 30px;
     transition:all 1s;
 }
-.planet_image{
-    height: 40vh;
-    position: fixed;
-}
-
-#mercury_image{
-    height: 60vh;
-    margin-top:50vh;
-    margin-left:30vw;
-    z-index: -5;
-    animation-name: move_up;
-    animation-duration: 2s;
-}
 @keyframes move_up{
     0%{
         margin-top:70vh;
@@ -638,12 +625,83 @@ button {
         opacity: 0.5;
     }
     100%{
-        margin-top:50vh;
-        margin-left:30vw; 
+        margin-top:50.3vh;
+        margin-left:25vw; 
         opacity: 1;
     }
 }
+#mercury_code{
+    height: 63vh;
+    width: 63vh;
+    background-image: linear-gradient(-45deg, rgb(232, 114, 84), rgb(216, 160, 86),rgb(203, 156, 91), rgb(196, 101, 78)); 
+    border-radius: 50%;
+    position: fixed;
+    z-index: 100;
+    margin-top: 45vh;
+    overflow: hidden;   
+    border: 2px solid white;
+    margin-left: 25%;
+    margin-top: 100%;
+    z-index: -5;
+    animation-name: move_up;
+    animation-duration: 2s;
+}
+.spots{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-image: linear-gradient(-45deg, rgb(241, 132, 78),rgb(251, 213, 76),  rgb(226, 63, 63));
+    border: 2px solid rgba(0, 0, 0, 0.659);
+}
+#spot1{
+    margin-left: 45%;
+}
+#spot2{
+    margin-left: 0%;
+    margin-top: 40%;
 
+}
+#spot3{
+    margin-top: -70%;
+    margin-left: -5%;
+}
+#spot4{
+    margin-left: 40%;
+    margin-top: 25%;
+    width: 150px;
+    height: 75px;
+}
+#spot5{
+    width: 90px;
+    height: 75px;
+    margin-top: -40%;
+    transform: rotate(90deg);
+    margin-left: 15%;
+}
+.small_spot{
+    width: 70px;
+    height: 45px;
+    background-image: radial-gradient(rgb(210, 176, 72), rgb(255, 179, 39), rgb(228, 72, 0));
+    border: 2px solid rgba(0, 0, 0, 0.43);
+    border-radius: 50%;
+}
+#small_spot1{
+    margin-left: 50%;
+    border-radius: 50%;
+    margin-top: -10%;
+    position: absolute;
+    transform: rotate(0deg);
+}
+#small_spot2{
+    margin-left: 20%;
+    margin-top: -30%;
+    position: absolute;
+}
+#small_spot3{
+    transform: rotate(0deg);
+    margin-left: 40%;
+    margin-top: -10%;
+}
 /*===================================NAVBAR===========================*/
 .blur{
     position: absolute;
