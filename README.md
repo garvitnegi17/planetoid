@@ -61,6 +61,10 @@ Here's the list of games decided so far:
 ---
 - Coded Mercury Image
 ---
+#### :octocat: 02-04-2024
+---
+- Styled Start Games Button
+---
 
 The site is live [here](https://garvitnegi17.github.io/planetoid/).
 
