@@ -457,32 +457,28 @@ body {
     animation-name: glass;
     animation-duration: 9s;
     animation-delay: 0s;
-    z-index: 90;
-    font-family: silkscreen;
-    text-decoration: none;
-    font-size: 23px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: 63%;
     margin-top: 15%;
-    margin-left: 30%;
-    background-image: linear-gradient(45deg, rgb(66, 117, 188),rgb(225, 127, 62), rgb(117, 117, 202));
-    color: yellow;
-    width: 150px;
-    height: 35px;
-    border-radius: 25px;
-    overflow: hidden;
-    padding: 2px 4px 2px 4px;
-   }
-   
-   /*#inner_box1{
     display: flex;
-    justify-content: space-around;
-    border-radius: 25px;
-    border-left: #24309F;
-    border-right: #31C1FF;
-    width: 200px;
-    height: 20px;
-   }*/
+    justify-content: space-evenly;
+    text-align: center;
+    background-image: radial-gradient(rgb(141, 169, 218), rgb(98, 188, 223), rgb(58, 12, 241));
+    }
 
-   @keyframes glass {
+    #play{
+        text-decoration: none;
+        color: whitesmoke;
+        font-family: silkscreen;
+        margin-top: 37%;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    
+    @keyframes glass {
     0% {
         opacity: 0;
     }
