@@ -65,6 +65,12 @@ Here's the list of games decided so far:
 ---
 - Styled Start Games Button
 ---
+#### :octocat: 30-04-2024
+---
+- fixed bugs
+- added developer links
+- Added team page
+---
 
 The site is live [here](https://garvitnegi17.github.io/planetoid/).
 
