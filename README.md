@@ -71,6 +71,11 @@ Here's the list of games decided so far:
 - added developer links
 - Added team page
 ---
+#### :octocat: 04-05-2024
+---
+- added images
+- attached links 
+---
 
 The site is live [here](https://garvitnegi17.github.io/planetoid/).
 
