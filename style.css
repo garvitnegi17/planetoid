@@ -855,10 +855,36 @@ button {
     animation: none;
     margin-top: 0;
     margin-left: 7vw;
+    display: flex;
+    flex-direction: column;
 }
 
 #team_glass1{
     animation: none;
     margin-top: 10vh;
     margin-left: 7vw;
+    display: flex;
+    flex-direction: column;
+}
+.name{
+    font-weight: 500;
+    font-size: 17px;
+    margin-left: 20px;
+}
+.member_image{
+    height: 120px;
+    margin-bottom: 10px;
+}
+.member_intro{
+    display: flex;
+}
+.socials{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+}
+.socials img{
+    height: 20px;
+    filter: brightness(0) invert(1);
+    margin-left: 10px;
 }
