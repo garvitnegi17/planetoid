@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="tic_tac_toe_style.css">
+</head>
+
+<body>
+    <img src='https://static-00.iconduck.com/assets.00/flying-saucer-emoji-2048x1845-4gyquu9x.png' id="player1" class="player">
+    <img src='https://cdn-icons-png.flaticon.com/512/4825/4825026.png' id="player2" class="player">
+
+    <div class="container">
+        <div id="scoreBoard">
+            <div id="ufoScore" class="scores">0</div>
+            <div id="spaceShuttleScore" class="scores">0</div>
+            <h3>Tic Tac Toe</h3>
+        </div>
+        <div id="gameBoard" class="game-board">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+        <div id="roundInfo">Round: 1</div>
+        <button id="restartButton">Restart Game</button>
+        <div id="winningMessage" class="winning-message">
+            <span data-winning-message-text></span>
+            <button id="winningMessageButton">Play Again</button>
+        </div>
+    </div>
+    <a href="..\games.html" id="goback"><button>Go Back</button></a>
+    <script src="script.js"></script>
+</body>
+
+</html>
