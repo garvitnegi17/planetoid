@@ -1,0 +1,122 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color:#fff;
+}
+
+.container {
+    text-align: center;
+}
+
+#scoreBoard {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin-bottom: 20px;
+    background-color: aqua;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%; /* Adjust size for margin effect */
+}
+
+.cell.ufo {
+    background-image: url('https://static-00.iconduck.com/assets.00/flying-saucer-emoji-2048x1845-4gyquu9x.png');
+}
+
+.cell.space-shuttle {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/4825/4825026.png');
+}
+
+#winnerAnnouncement {
+    margin-top: 20px;
+}
+
+#roundInfo {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.winning-message {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 2rem;
+}
+
+.winning-message.show {
+    display: flex;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #ffffff1f;
+    border: none;
+    border-radius: 50px;
+    color:white;
+    transition-duration: 0.3s;
+    backdrop-filter: blur(7px);
+}
+button:hover{
+    border: 1px solid aqua;
+    box-shadow: 0 0 20px aqua;
+}
+
+.scores{
+    position: absolute;
+    top:20px;
+}
+#ufoScore{
+    left:20px;
+}
+#spaceShuttleScore{
+    right:20px;
+}
+.player{
+    height: 40px;
+    position: absolute;
+    top:20px;
+}
+#player1{
+    left:50px;
+}
+#player2{
+    right: 50px;
+}
+#goback{
+    position: absolute;
+    bottom: 20px;
+    left:20px
+}
