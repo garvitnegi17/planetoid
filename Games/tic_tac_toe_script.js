@@ -76,7 +76,7 @@ function endGame(draw) {
       declareOverallWinner()
       resetScores()
       round = 1
-    }, 2000) // Wait 2 seconds before resetting for visibility
+    }, 500) // Wait 2 seconds before resetting for visibility
   } else {
     winningMessageElement.classList.add('show')
     setTimeout(startGame, 2000) // Wait 2 seconds before starting next round
