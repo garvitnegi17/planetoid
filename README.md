@@ -83,7 +83,7 @@ Here's the list of games decided so far:
 #### :octocat: 08-08-2024
 ---
 - added flappy space shuttle
-
+---
 The site is live [here](https://garvitnegi17.github.io/planetoid/).
 
 `Happy Coding :)`
