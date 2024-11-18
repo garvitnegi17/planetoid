@@ -29,44 +29,9 @@ Planetoid is built with the following technologies:
 
 ## 📸 Screenshots  
 
-> Add screenshots or GIFs of your website showcasing the games, interface, and space theme here.  
+![image](https://github.com/user-attachments/assets/1725b513-6690-46df-b6a5-11e29bbfdd8c)
 
----
+## Visit Planetoid
 
-## 🌟 Getting Started  
-
-Follow these steps to get Planetoid up and running on your local machine:  
-
-1. **Clone the Repository**  
-   ```bash  
-   git clone https://github.com/yourusername/planetoid.git  
-Navigate to the Project Directory
-
-bash
-Copy code
-cd planetoid  
-Open the Project
-Open index.html in your browser to explore Planetoid.
-
-🌌 How to Play
-Visit the website.
-Choose a game from the main menu.
-Enjoy the space-themed challenges and have fun!
-🤝 Contributing
-We welcome contributions to make Planetoid even better!
-
-Fork the repository.
-Create a new branch: git checkout -b feature-name
-Make your changes and commit them: git commit -m 'Add feature'
-Push to the branch: git push origin feature-name
-Submit a pull request.
-📜 License
-This project is licensed under the MIT License.
-
-🪐 Acknowledgments
-Thanks to the space exploration community for inspiring this project!
-Credits to contributors who enhance the Planetoid experience.
-csharp
-Copy code
-
-Copy and paste this code into a `README.md` file in your project repository. 🚀
+| [`Visit Planetoid`](https://garvitnegi17.github.io/planetoid/) |
+|-|
