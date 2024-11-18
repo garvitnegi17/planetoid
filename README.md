@@ -21,7 +21,7 @@ Welcome to **Planetoid**, a fun and interactive website featuring a variety of m
 ## 🛠️ Technologies  
 
 Planetoid is built with the following technologies:  
-- **Frontend**: (https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)  ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=flat&logo=javascript&logoColor=F7DF1E) ![Markd
+- **Frontend**: ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)  ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=flat&logo=javascript&logoColor=F7DF1E)
 - **Design**: CSS animations for a sleek, space-themed look  
 - **Games**: JavaScript for game logic and interactivity  
 
