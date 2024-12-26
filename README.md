@@ -4,6 +4,19 @@ Welcome to **Planetoid**, a fun and interactive website featuring a variety of m
 
 ---
 
+### Featured In
+
+<table>
+<tr>
+      <th>Event Logo</th>
+      <th>Event Name</th>
+    </tr>
+<tr>
+        <td><img src="Documentation/images/SWOC.jpg" width="200" height="auto" loading="lazy" alt="SWOC"/></td>
+        <td><a href="https://www.socialwinterofcode.com/">Social Winter of Code Season-5 (SWOC) </a>2024-2025</td>
+    </tr>
+</table>
+
 ## 🚀 Features  
 
 - **Mini-Games**  
