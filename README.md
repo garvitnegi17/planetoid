@@ -12,7 +12,7 @@ Welcome to **Planetoid**, a fun and interactive website featuring a variety of m
       <th>Event Name</th>
     </tr>
 <tr>
-        <td><img src="Documentation/images/SWOC.jpg" width="200" height="auto" loading="lazy" alt="SWOC"/></td>
+        <td><img src="images/swoc.jpeg" width="200" height="auto" loading="lazy" alt="SWOC"/></td>
         <td><a href="https://www.socialwinterofcode.com/">Social Winter of Code Season-5 (SWOC) </a>2024-2025</td>
     </tr>
 </table>
