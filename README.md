@@ -44,6 +44,17 @@ Planetoid is built with the following technologies:
 
 ![image](https://github.com/user-attachments/assets/1725b513-6690-46df-b6a5-11e29bbfdd8c)
 
+---
+
+### Contributions
+
+Want to make contributions to this project? ✨
+
+| **Read _[contribution guidelines!](documentation/contributing.md)_** |
+|-|
+
+---
+
 ## Visit Planetoid
 
 | [`Visit Planetoid`](https://garvitnegi17.github.io/planetoid/) |
