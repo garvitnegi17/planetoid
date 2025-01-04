@@ -57,5 +57,5 @@ Want to make contributions to this project? ✨
 
 ## Visit Planetoid
 
-| [`Visit Planetoid`](https://garvitnegi17.github.io/planetoid/) |
+| [`Visit Planetoid`](https://planetoid-games.netlify.app/) |
 |-|
