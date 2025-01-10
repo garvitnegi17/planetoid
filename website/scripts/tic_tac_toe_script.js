@@ -1,5 +1,5 @@
-const UFO_CLASS = 'ufo'
-const SPACE_SHUTTLE_CLASS = 'space-shuttle'
+const UFO_CLASS = 'ufo';
+const SPACE_SHUTTLE_CLASS = 'space-shuttle';
 const WINNING_COMBINATIONS = [
   [0, 1, 2],
   [3, 4, 5],
@@ -8,125 +8,167 @@ const WINNING_COMBINATIONS = [
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
-  [2, 4, 6]
-]
-const cellElements = document.querySelectorAll('[data-cell]')
-const board = document.getElementById('gameBoard')
-const winningMessageElement = document.getElementById('winningMessage')
-const restartButton = document.getElementById('restartButton')
-const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
-const roundInfo = document.getElementById('roundInfo')
-const ufoScoreElement = document.getElementById('ufoScore')
-const spaceShuttleScoreElement = document.getElementById('spaceShuttleScore')
+  [2, 4, 6],
+];
 
-let spaceShuttleTurn
-let ufoScore = 0
-let spaceShuttleScore = 0
-let round = 1
+const cellElements = document.querySelectorAll('[data-cell]');
+const board = document.getElementById('gameBoard');
+const winningMessageElement = document.getElementById('winningMessage');
+const restartButton = document.getElementById('restartButton');
+const winningMessageTextElement = document.querySelector('[data-winning-message-text]');
+const roundInfo = document.getElementById('roundInfo');
+const ufoScoreElement = document.getElementById('ufoScore');
+const spaceShuttleScoreElement = document.getElementById('spaceShuttleScore');
+const playWithComputerButton = document.getElementById('playWithComputer');
+const playWithPlayerButton = document.getElementById('playWithPlayer');
+const modeSelection = document.getElementById('modeSelection');
 
-startGame()
+let spaceShuttleTurn;
+let ufoScore = 0;
+let spaceShuttleScore = 0;
+let round = 1;
+let playWithComputer = false;
 
-restartButton.addEventListener('click', startGame)
+// Event listeners for mode selection
+playWithComputerButton.addEventListener('click', () => {
+  playWithComputer = true;
+  modeSelection.style.display = 'none'; // Hide mode selection after choice
+  startGame();
+});
+
+playWithPlayerButton.addEventListener('click', () => {
+  playWithComputer = false;
+  modeSelection.style.display = 'none'; // Hide mode selection after choice
+  startGame();
+});
+
+restartButton.addEventListener('click', startGame);
 
 function startGame() {
-  spaceShuttleTurn = false
-  cellElements.forEach(cell => {
-    cell.classList.remove(UFO_CLASS)
-    cell.classList.remove(SPACE_SHUTTLE_CLASS)
-    cell.removeEventListener('click', handleClick)
-    cell.addEventListener('click', handleClick, { once: true })
-  })
-  setBoardHoverClass()
-  winningMessageElement.classList.remove('show')
-  roundInfo.innerText = `Round: ${round}`
+  spaceShuttleTurn = false;
+  cellElements.forEach((cell) => {
+    cell.classList.remove(UFO_CLASS);
+    cell.classList.remove(SPACE_SHUTTLE_CLASS);
+    cell.removeEventListener('click', handleClick);
+    cell.addEventListener('click', handleClick, { once: true });
+  });
+  setBoardHoverClass();
+  winningMessageElement.classList.remove('show');
+  roundInfo.innerText = `Round: ${round}`;
 }
 
 function handleClick(e) {
-  const cell = e.target
-  const currentClass = spaceShuttleTurn ? SPACE_SHUTTLE_CLASS : UFO_CLASS
-  placeMark(cell, currentClass)
+  const cell = e.target;
+  const currentClass = spaceShuttleTurn ? SPACE_SHUTTLE_CLASS : UFO_CLASS;
+  placeMark(cell, currentClass);
   if (checkWin(currentClass)) {
-    endGame(false)
+    endGame(false);
   } else if (isDraw()) {
-    endGame(true)
+    endGame(true);
   } else {
-    swapTurns()
-    setBoardHoverClass()
+    swapTurns();
+    if (playWithComputer && spaceShuttleTurn) {
+      setTimeout(computerMove, 2000); // Add 2-second delay for the computer's move
+    } else {
+      setBoardHoverClass();
+    }
+  }
+}
+
+function computerMove() {
+  const availableCells = [...cellElements].filter(
+    (cell) => !cell.classList.contains(UFO_CLASS) && !cell.classList.contains(SPACE_SHUTTLE_CLASS)
+  );
+  if (availableCells.length === 0) return; // If no available cells, return
+  const randomCell = availableCells[Math.floor(Math.random() * availableCells.length)];
+  placeMark(randomCell, SPACE_SHUTTLE_CLASS);
+  if (checkWin(SPACE_SHUTTLE_CLASS)) {
+    endGame(false);
+  } else if (isDraw()) {
+    endGame(true);
+  } else {
+    swapTurns();
+    setBoardHoverClass();
   }
 }
 
 function endGame(draw) {
   if (draw) {
-    winningMessageTextElement.innerText = 'Draw!'
+    winningMessageTextElement.innerText = 'Draw!';
   } else {
     if (spaceShuttleTurn) {
-      winningMessageTextElement.innerText = "Space Shuttle Wins!"
-      spaceShuttleScore++
+      winningMessageTextElement.innerText = 'Space Shuttle Wins!';
+      spaceShuttleScore++;
     } else {
-      winningMessageTextElement.innerText = "UFO Wins!"
-      ufoScore++
+      winningMessageTextElement.innerText = 'UFO Wins!';
+      ufoScore++;
     }
   }
 
-  updateScores()
+  updateScores();
 
-  round++
+  round++;
   if (round > 5) {
     setTimeout(() => {
-      declareOverallWinner()
-      resetScores()
-      round = 1
-    }, 500) // Wait 2 seconds before resetting for visibility
+      declareOverallWinner();
+      resetScores();
+      round = 1;
+    }, 500);
   } else {
-    winningMessageElement.classList.add('show')
-    setTimeout(startGame, 2000) // Wait 2 seconds before starting next round
+    winningMessageElement.classList.add('show');
+    setTimeout(startGame, 2000);
   }
 }
 
 function isDraw() {
-  return [...cellElements].every(cell => {
-    return cell.classList.contains(UFO_CLASS) || cell.classList.contains(SPACE_SHUTTLE_CLASS)
-  })
+  return [...cellElements].every((cell) => {
+    return cell.classList.contains(UFO_CLASS) || cell.classList.contains(SPACE_SHUTTLE_CLASS);
+  });
 }
 
 function placeMark(cell, currentClass) {
-  cell.classList.add(currentClass)
+  cell.classList.add(currentClass);
 }
 
 function swapTurns() {
-  spaceShuttleTurn = !spaceShuttleTurn
+  spaceShuttleTurn = !spaceShuttleTurn;
 }
 
 function setBoardHoverClass() {
-  board.classList.remove(UFO_CLASS)
-  board.classList.remove(SPACE_SHUTTLE_CLASS)
+  board.classList.remove(UFO_CLASS);
+  board.classList.remove(SPACE_SHUTTLE_CLASS);
   if (spaceShuttleTurn) {
-    board.classList.add(SPACE_SHUTTLE_CLASS)
+    board.classList.add(SPACE_SHUTTLE_CLASS);
   } else {
-    board.classList.add(UFO_CLASS)
+    board.classList.add(UFO_CLASS);
   }
 }
 
 function checkWin(currentClass) {
-  return WINNING_COMBINATIONS.some(combination => {
-    return combination.every(index => {
-      return cellElements[index].classList.contains(currentClass)
-    })
-  })
+  return WINNING_COMBINATIONS.some((combination) => {
+    return combination.every((index) => {
+      return cellElements[index].classList.contains(currentClass);
+    });
+  });
 }
 
 function updateScores() {
-  ufoScoreElement.innerText = `${ufoScore}`
-  spaceShuttleScoreElement.innerText = `${spaceShuttleScore}`
+  ufoScoreElement.innerText = `${ufoScore}`;
+  spaceShuttleScoreElement.innerText = `${spaceShuttleScore}`;
 }
 
 function declareOverallWinner() {
-  const winner = ufoScore > spaceShuttleScore ? 'UFO' : (spaceShuttleScore > ufoScore ? 'Space Shuttle' : 'No one')
-  alert(`Overall Winner: ${winner}!`)
+  const winner =
+    ufoScore > spaceShuttleScore
+      ? 'UFO'
+      : spaceShuttleScore > ufoScore
+      ? 'Space Shuttle'
+      : 'No one';
+  alert(`Overall Winner: ${winner}!`);
 }
 
 function resetScores() {
-  ufoScore = 0
-  spaceShuttleScore = 0
-  updateScores()
+  ufoScore = 0;
+  spaceShuttleScore = 0;
+  updateScores();
 }
