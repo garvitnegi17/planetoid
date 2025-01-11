@@ -21,9 +21,11 @@ function startGame() {
 }
 
 function fly(event) {
+  console.log("Key pressed:", event.key); // Debug log to check key press
   if (event.key === " " || event.key === "ArrowUp" || event.type === "touchstart") {
     event.preventDefault();  // Prevent scrolling on touch devices
     birdVelocity = -6; // Reduced upward velocity
+    console.log("Bird velocity updated to:", birdVelocity); // Debug log to check velocity
   }
 }
 
