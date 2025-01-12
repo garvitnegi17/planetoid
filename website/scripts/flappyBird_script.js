@@ -15,14 +15,17 @@ let obstacleFrequency = 1800; // milliseconds
 
 function startGame() {
   document.addEventListener("keydown", fly);
-  gameContainer.addEventListener("touchstart", fly); // Added touch event listener
+  gameContainer.addEventListener("touchstart", fly, {passive: false}); // Added touch event listener
   setInterval(gameLoop, 20);
   setInterval(generateObstacle, obstacleFrequency);
 }
 
 function fly(event) {
+  console.log("Key pressed:", event.key); // Debug log to check key press
   if (event.key === " " || event.key === "ArrowUp" || event.type === "touchstart") {
+    event.preventDefault();  // Prevent scrolling on touch devices
     birdVelocity = -6; // Reduced upward velocity
+    console.log("Bird velocity updated to:", birdVelocity); // Debug log to check velocity
   }
 }
 
