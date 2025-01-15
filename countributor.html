@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planetoid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Honk&family=Micro+5&family=Silkscreen:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
+    <link rel="stylesheet" href="/website/styles/style.css">
+    <link rel="stylesheet" href="/visitor.css">
+
+    <style>
+       
+
+        .container {
+            width: 90%;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Title Styling */
+        .title1 {
+            font-family: 'Silkscreen';
+            /* font-weight: bold; */
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.87);
+            text-transform: uppercase;
+            /* Makes the text all caps */
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            /* Adds a subtle shadow effect */
+        }
+
+        /* Body Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url(/6.png);
+            /* Added background image */
+            background-size: cover;
+            /* Ensures the image covers the entire body */
+            background-position: center;
+            /* Center the image */
+            background-repeat: no-repeat;
+            /* Ensures the image doesn’t repeat */
+            background-attachment: fixed;
+            /* Keeps the image fixed during scrolling */
+            /* color: #333; */
+        }
+
+        /* Contributors Grid */
+        .contributors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px auto;
+            padding: 0 20px;
+            max-width: 1200px;
+        }
+
+        /* Contributor Card */
+        .contributor-card {
+            /* background: #fff; */
+            background-image: url(/bg.png);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .contributor-card:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .contributor-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contributor-card h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.87);
+        }
+
+        .contributor-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        a:-webkit-any-link {
+            color: rgba(255, 255, 255, 0.87);
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Silkscreen';
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contributors-grid {
+                padding: 10px;
+            }
+
+            .contributor-card {
+                padding: 15px;
+            }
+
+            .contributor-card h3 {
+                font-size: 1rem;
+            }
+
+            .contributor-card p {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+    <div id="particles-js"></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <div class="stars" id="games_stars"></div>
+    <div class="games">
+        <div class="navbar" id="games_navbar" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+            <p class="title" id="games_title"><a href="/">PLANETOID</a></p>
+            <i class="fas fa-arrow-left" style="margin-right: 10px;"><a href="/website/pages/games.html">&nbsp;Back</a></i>
+
+            
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Contributors Section -->
+    <div class="container">
+        <h1 class="title1">Contributors of Planetoid</h1>
+
+        
+
+
+        <div id="contributors" class="contributors-grid">
+            <!-- Dynamic contributors will be added here -->
+        </div>
+
+
+
+
+
+
+<div class="visitor-counter">
+
+                <span class="visi">Total Visitors :&nbsp;</span>
+                <span class="website-counter"></span>
+        
+            </div>
+
+
+
+
+
+    </div>
+
+
+    
+  
+        
+
+</body>
+
+<script src="/contributor.js"></script>
+
+<script src="/visitor.js"></script>
+
+
+</html>
