@@ -459,6 +459,7 @@ body {
 }
 
 #home_button {
+    cursor: pointer;
     position: absolute;
     animation-name: glass;
     animation-duration: 9s;
