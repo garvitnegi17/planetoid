@@ -466,24 +466,13 @@ body {
     animation-delay: 0s;
     height: 80px;
     width: 80px;
-    border-radius: 50%;
-    border: 2px solid white;
-    margin-left: 47%;
+    margin-left: 41%;
     margin-top: 15%;
     display: flex;
     justify-content: space-evenly;
     text-align: center;
-    background-image: radial-gradient(rgb(141, 169, 218), rgb(98, 188, 223), rgb(58, 12, 241));
 }
 
-#play {
-    text-decoration: none;
-    color: whitesmoke;
-    font-family: silkscreen;
-    margin-top: 37%;
-    font-size: 15px;
-    font-weight: bold;
-}
 
 @keyframes glass {
     0% {
@@ -863,16 +852,20 @@ button {
 }
 
 @media (max-width: 600px) {
-    #home_button {
+    /* #home_button {
         border: none;
         background: none;
+    } */
+
+    #play img{
+        height: 100px;
     }
 
     #play {
         font-size: 30px;
         display: flex;
         margin-top: 65px;
-        margin-left: -40px;
+        margin-left: -50px;
     }
 
     #play:hover{
