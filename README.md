@@ -3,6 +3,21 @@
 Welcome to **Planetoid**, a fun and interactive website featuring a variety of mini-games set against the backdrop of outer space! From timeless classics like Tic-Tac-Toe to exciting challenges like Flappy Space Shuttle, Planetoid is your ultimate space-themed entertainment hub.  
 
 ---
+![Visitors](https://api.visitorbadge.io/api/visitors?path=garvitnegi172%2planetoid%20&countColor=%23263759&style=flat&initial=5767)
+  ![License](https://img.shields.io/badge/License-MIT-4e3eb5)
+  ![Languages](https://img.shields.io/github/languages/count/garvitnegi17/planetoid?color=20B2AA)
+  ![GitHub Repo stars](https://img.shields.io/github/stars/garvitnegi17/planetoid)
+  ![GitHub contributors](https://img.shields.io/github/contributors/garvitnegi17/planetoid)
+  ![GitHub issues](https://img.shields.io/github/issues/garvitnegi17/planetoid)
+  ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/garvitnegi17/planetoid)
+  ![GitHub forks](https://img.shields.io/github/forks/garvitnegi17/planetoid)
+  ![GitHub pull requests](https://img.shields.io/github/issues-pr/garvitnegi17/planetoid)
+  ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/garvitnegi17/planetoid)
+  ![GitHub last commit](https://img.shields.io/github/last-commit/garvitnegi17/planetoid)
+  ![GitHub repo size](https://img.shields.io/github/repo-size/garvitnegi17/planetoid)
+  ![GitHub total lines](https://sloc.xyz/github/garvitnegi17/planetoid)
+  <a href="https://planetoid-games.netlify.app/"><img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fplanetoid-games.netlify.app%2F&up_message=awake&up_color=%2300d18f&down_message=asleep&down_color=red&style=flat">
+</a>
 
 ### Featured In
 
