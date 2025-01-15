@@ -16,6 +16,10 @@ git checkout -b <new-branch-name>
 ```
 
 - Make your contributions to solve the issue.
+
+>[!IMPORTANT]
+>Make sure the files you have created are placed in the correct directory. Like `html` files should be placed in `/website/pages` directory.
+
 - Commit the changes: 
 
 ```
