@@ -1,132 +1,112 @@
-const UFO_CLASS = 'ufo'
-const SPACE_SHUTTLE_CLASS = 'space-shuttle'
-const WINNING_COMBINATIONS = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
-]
-const cellElements = document.querySelectorAll('[data-cell]')
-const board = document.getElementById('gameBoard')
-const winningMessageElement = document.getElementById('winningMessage')
-const restartButton = document.getElementById('restartButton')
-const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
-const roundInfo = document.getElementById('roundInfo')
-const ufoScoreElement = document.getElementById('ufoScore')
-const spaceShuttleScoreElement = document.getElementById('spaceShuttleScore')
+const ufo = '<img src="https://static-00.iconduck.com/assets.00/flying-saucer-emoji-2048x1845-4gyquu9x.png" class="player">';
+const spaceShuttle = '<img src="https://cdn-icons-png.flaticon.com/512/4825/4825026.png" class="player">';
+const ufoEmoji = '🛸'; // UFO emoji
+const spaceShuttleEmoji = '🚀'; // Space Shuttle emoji
 
-let spaceShuttleTurn
-let ufoScore = 0
-let spaceShuttleScore = 0
-let round = 1
+let turn = "X";
+let gameover = false;
+let ufoScore = 0;
+let spaceShuttleScore = 0;
 
-startGame()
+const changeTurn = () => {
+    return turn === "X" ? "O" : "X";
+};
 
-restartButton.addEventListener('click', startGame)
+const updateScores = () => {
+    document.getElementById("ufoScore").innerText = `UFO: ${ufoScore}`;
+    document.getElementById("spaceShuttleScore").innerText = `Space Shuttle: ${spaceShuttleScore}`;
+};
 
-function startGame() {
-  spaceShuttleTurn = false
-  cellElements.forEach(cell => {
-    cell.classList.remove(UFO_CLASS)
-    cell.classList.remove(SPACE_SHUTTLE_CLASS)
-    cell.removeEventListener('click', handleClick)
-    cell.addEventListener('click', handleClick, { once: true })
-  })
-  setBoardHoverClass()
-  winningMessageElement.classList.remove('show')
-  roundInfo.innerText = `Round: ${round}`
-}
+const checkWin = () => {
+    let boxtext = document.getElementsByClassName("boxtext");
+    let wins = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Horizontal
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Vertical
+        [0, 4, 8], [2, 4, 6]             // Diagonal
+    ];
 
-function handleClick(e) {
-  const cell = e.target
-  const currentClass = spaceShuttleTurn ? SPACE_SHUTTLE_CLASS : UFO_CLASS
-  placeMark(cell, currentClass)
-  if (checkWin(currentClass)) {
-    endGame(false)
-  } else if (isDraw()) {
-    endGame(true)
-  } else {
-    swapTurns()
-    setBoardHoverClass()
-  }
-}
+    wins.forEach(e => {
+        if ((boxtext[e[0]].innerHTML === boxtext[e[1]].innerHTML) &&
+            (boxtext[e[1]].innerHTML === boxtext[e[2]].innerHTML) &&
+            (boxtext[e[0]].innerHTML !== "")) {
+            const winner = boxtext[e[0]].innerHTML.includes("flying-saucer") ? "UFO" : "Space Shuttle";
 
-function endGame(draw) {
-  if (draw) {
-    winningMessageTextElement.innerText = 'Draw!'
-  } else {
-    if (spaceShuttleTurn) {
-      winningMessageTextElement.innerText = "Space Shuttle Wins!"
-      spaceShuttleScore++
-    } else {
-      winningMessageTextElement.innerText = "UFO Wins!"
-      ufoScore++
-    }
-  }
+            // Update the score for the winner
+            if (winner === "UFO") {
+                ufoScore++;
+            } else {
+                spaceShuttleScore++;
+            }
+            updateScores();
 
-  updateScores()
+            // Display winner message with emoji
+            const winnerEmoji = winner === "UFO" ? ufoEmoji : spaceShuttleEmoji;
+            document.querySelector(".info").innerHTML = `${winner} Wins! ${winnerEmoji}`;
 
-  round++
-  if (round > 5) {
-    setTimeout(() => {
-      declareOverallWinner()
-      resetScores()
-      round = 1
-    }, 500) // Wait 2 seconds before resetting for visibility
-  } else {
-    winningMessageElement.classList.add('show')
-    setTimeout(startGame, 2000) // Wait 2 seconds before starting next round
-  }
-}
+            gameover = true;
 
-function isDraw() {
-  return [...cellElements].every(cell => {
-    return cell.classList.contains(UFO_CLASS) || cell.classList.contains(SPACE_SHUTTLE_CLASS)
-  })
-}
+            // Highlight the winning boxes
+            e.forEach(index => {
+                document.getElementsByClassName("box")[index].classList.add("winning");
+            });
 
-function placeMark(cell, currentClass) {
-  cell.classList.add(currentClass)
-}
+            // Stop background music and play game over sound
+            music.pause();
+            mgameover.play();
 
-function swapTurns() {
-  spaceShuttleTurn = !spaceShuttleTurn
-}
+            // Show the winning emoji image
+            const img = document.querySelector(".imgbox img");
+            img.style.display = "block";
+            img.classList.add("winner");
+        }
+    });
+};
 
-function setBoardHoverClass() {
-  board.classList.remove(UFO_CLASS)
-  board.classList.remove(SPACE_SHUTTLE_CLASS)
-  if (spaceShuttleTurn) {
-    board.classList.add(SPACE_SHUTTLE_CLASS)
-  } else {
-    board.classList.add(UFO_CLASS)
-  }
-}
+// Game Logic
+let boxes = document.getElementsByClassName("box");
+Array.from(boxes).forEach(element => {
+    let boxtext = element.querySelector(".boxtext");
+    element.addEventListener("click", () => {
+        if (boxtext.innerHTML === '' && !gameover) {
+            boxtext.innerHTML = turn === "X" ? ufo : spaceShuttle;
+            turn = changeTurn();
+            checkWin();
+            if (!gameover) {
+                document.getElementsByClassName("info")[0].innerHTML = "Turn for " + (turn === "X" ? "UFO 🛸" : "Space Shuttle 🚀");
+            }
+        }
+    });
+});
 
-function checkWin(currentClass) {
-  return WINNING_COMBINATIONS.some(combination => {
-    return combination.every(index => {
-      return cellElements[index].classList.contains(currentClass)
-    })
-  })
-}
+// Reset logic
+const resetButton = document.getElementById("reset");
+resetButton.addEventListener("click", () => {
+    const boxtexts = document.querySelectorAll(".boxtext");
+    Array.from(boxtexts).forEach((boxtext) => {
+        boxtext.innerHTML = "";
+    });
 
-function updateScores() {
-  ufoScoreElement.innerText = `${ufoScore}`
-  spaceShuttleScoreElement.innerText = `${spaceShuttleScore}`
-}
+    turn = "X";
+    gameover = false;
+    document.querySelector(".info").innerHTML = "Turn for UFO 🛸";
 
-function declareOverallWinner() {
-  const winner = ufoScore > spaceShuttleScore ? 'UFO' : (spaceShuttleScore > ufoScore ? 'Space Shuttle' : 'No one')
-  alert(`Overall Winner: ${winner}!`)
-}
+    // Hide emoji
+    const img = document.querySelector(".imgbox img");
+    img.style.display = "none";
+    img.classList.remove("winner");
 
-function resetScores() {
-  ufoScore = 0
-  spaceShuttleScore = 0
-  updateScores()
-}
+    // Remove winning class from boxes
+    const boxes = document.getElementsByClassName("box");
+    Array.from(boxes).forEach((box) => {
+        box.classList.remove("winning");
+    });
+
+    // Play background music
+    music.currentTime = 0;
+    music.play();
+});
+
+// Start music on first user interaction
+window.addEventListener("click", () => {
+    music.play();
+});

@@ -1,122 +1,332 @@
+/* Reset and Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: chartreuse;
+}
+
+/* Fullscreen Background */
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #000000;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    color:#fff;
-}
-
-.container {
-    text-align: center;
-}
-
-#scoreBoard {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-}
-
-#gameBoard {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-    margin-bottom: 20px;
-    background-color: aqua;
-}
-
-.cell {
-    width: 100px;
-    height: 100px;
-    background-color: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 80%; /* Adjust size for margin effect */
-}
-
-.cell.ufo {
-    background-image: url('https://static-00.iconduck.com/assets.00/flying-saucer-emoji-2048x1845-4gyquu9x.png');
-}
-
-.cell.space-shuttle {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/4825/4825026.png');
-}
-
-#winnerAnnouncement {
-    margin-top: 20px;
-}
-
-#roundInfo {
-    margin-top: 10px;
-    font-size: 1.2rem;
-}
-
-.winning-message {
-    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    font-size: 2rem;
+    height: 100vh;
+    margin: 0;
+    background-image: url("sky1.png"); /* Add your sky.png as the background */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: "Roboto", sans-serif;
+    color: chartreuse;
 }
 
-.winning-message.show {
+
+/* Tic Tac Toe Header Styling */
+nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10vw; /* Large size for the header */
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: starGlow 2s infinite alternate;
+}
+
+/* Star-like Glow Animation */
+@keyframes starGlow {
+    0% {
+        text-shadow: 
+            0 0 15px #ffd700, 
+            0 0 30px #ff6347, 
+            0 0 45px #ff4500, 
+            0 0 60px #ff6347, 
+            0 0 75px #ffd700;
+    }
+    50% {
+        text-shadow: 
+            0 0 20px #ffd700, 
+            0 0 40px #ff4500, 
+            0 0 60px #ff4500, 
+            0 0 80px #ff6347, 
+            0 0 100px #ffd700;
+    }
+    100% {
+        text-shadow: 
+            0 0 15px #ff4500, 
+            0 0 30px #ffd700, 
+            0 0 45px #ff6347, 
+            0 0 60px #ff4500, 
+            0 0 75px #ff4500;
+    }
+}
+
+/* Adjust Game Container */
+.gameContainer {
+    position: relative;
+    margin-top: 20vh; /* Push it below the centered header */
+    padding: 20px;
+}
+
+/* Scoreboard Styling */
+#scoreBoard {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em; /* Adjust for better readability */
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for contrast */
+    padding: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+}
+
+/* Box Styling (for contrast with background) */
+.box {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent boxes */
+    border: 2px solid yellow;
+    font-size: 10vw;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    margin-top: 20px;
+.box:hover {
+    background-color: rgba(20, 206, 64, 0.9);
+    transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 800px) {
+    nav {
+        font-size: 7vw;
+    }
+
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
+
+    .box {
+        font-size: 15vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    nav {
+        font-size: 5vw;
+    }
+
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3px;
+    }
+
+    .box {
+        font-size: 20vw;
+    }
+}
+
+
+#ufoScore, #spaceShuttleScore {
+    margin: 5px 0;
+    color: white;
+    text-shadow: 0 0 5px chartreuse, 0 0 10px chartreuse;
+}
+
+/* Game Container */
+.gameContainer {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 5vh;
+    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Game Grid */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Box Styling */
+.box {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border: 3px solid yellow;
+    font-size: 10vw;
     cursor: pointer;
-    background-color: #ffffff1f;
-    border: none;
-    border-radius: 50px;
-    color:white;
-    transition-duration: 0.3s;
-    backdrop-filter: blur(7px);
-}
-button:hover{
-    border: 1px solid aqua;
-    box-shadow: 0 0 20px aqua;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    border-radius: 10px;
 }
 
-.scores{
+.box:hover {
+    background: rgba(32, 178, 170, 0.8);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+.boxtext img {
+    width: 80%;
+    height: 80%;
+}
+
+/* Winning Highlight */
+.winning {
+    background: rgba(255, 69, 0, 0.8);
+    animation: pulse 1s infinite;
+    color: white;
+    font-weight: bold;
+}
+
+/* Info and Scores */
+.info {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Buttons */
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(16, 61, 23);
+    color: white;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: rgb(24, 87, 35);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+/* Reset Button */
+#reset {
+    margin-top: 20px;
+}
+
+/* Go Back Button */
+#goback {
     position: absolute;
-    top:20px;
+    top: 10px;
+    left: 10px;
 }
-#ufoScore{
-    left:20px;
+
+#goback button {
+    font-size: 1em;
+    padding: 8px 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: chartreuse;
+    border: 2px solid chartreuse;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
-#spaceShuttleScore{
-    right:20px;
+
+#goback button:hover {
+    background: rgba(0, 50, 0, 0.8);
+    transform: scale(1.1);
 }
-.player{
-    height: 40px;
-    position: absolute;
-    top:20px;
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
-#player1{
-    left:50px;
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
-#player2{
-    right: 50px;
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 800px) {
+    nav {
+        font-size: 4vh;
+        height: 10vh;
+    }
+
+    .gameContainer {
+        margin-top: 2vh;
+        padding: 10px;
+    }
+
+    .container {
+        grid-template-rows: repeat(3, 20vw);
+        grid-template-columns: repeat(3, 20vw);
+        gap: 5px;
+    }
+
+    .box {
+        font-size: 15vw;
+    }
+
+    .info {
+        font-size: 1.2rem;
+    }
+
+    #reset {
+        padding: 8px 20px;
+        font-size: small;
+    }
 }
-#goback{
-    position: absolute;
-    bottom: 20px;
-    left:20px
+
+@media screen and (max-width: 500px) {
+    .container {
+        grid-template-rows: repeat(3, 30vw);
+        grid-template-columns: repeat(3, 30vw);
+    }
+
+    .box {
+        font-size: 20vw;
+    }
+
+    .info {
+        font-size: 1rem;
+    }
+
+    #reset {
+        padding: 5px 15px;
+        font-size: x-small;
+    }
 }
