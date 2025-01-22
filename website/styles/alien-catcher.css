@@ -1,0 +1,104 @@
+
+
+/* Base Styles */
+body {
+  background: rgb(10, 10, 10);
+  color: #fff;
+  font-family: sans-serif;
+  background-image: url("/images/Alien_catcher-images/space3.jpg");
+  background-size: cover; /* Ensures the image covers the full viewport */
+  background-position: center; /* Centers the image */
+  background-attachment: fixed; /* Keeps the background fixed during scrolling */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+.scores-container,
+.grid-container,
+.total-score,
+.time,
+.grid,
+.square {
+  background-color: rgba(0, 0, 0, 0.6); /* Adds a semi-transparent black overlay */
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
+  border-radius: 10px; /* Rounded corners for a smooth appearance */
+}
+
+.scores-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.total-score,
+.time {
+  margin: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Subtle glow effect */
+}
+
+.grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent overlay for grids */
+  margin-top: 2rem;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Subtle shadow for a glowing effect */
+}
+
+.square {
+  height: 200px;
+  width: 200px;
+  margin: 10px;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent square background */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Adds a glowing effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.emoji {
+  background-image: url("/images/Alien_catcher-images/alien-image.png");
+  background-position: center;
+  background-size: cover;
+}
+/* Optional: Add a hover effect for interactive elements */
+.total-score:hover,
+.time:hover,
+.square:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  transition: transform 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.2); /* Brightens the background on hover */
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+  .square {
+    height: 100px; /* Smaller squares for mobile */
+    width: 100px;
+    margin: 5px;
+  }
+
+  .square:nth-child(10) {
+    display: none; /* Hide the 10th container on mobile */
+  }
+
+  .grid {
+    padding: 10px; /* Reduce grid padding for smaller screens */
+  }
+}
