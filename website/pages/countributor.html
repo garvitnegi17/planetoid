@@ -7,13 +7,13 @@
     <title>Planetoid</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="shortcut icon" href="fav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon/fav.png" type="image/x-icon">
     <link
         href="https://fonts.googleapis.com/css2?family=Honk&family=Micro+5&family=Silkscreen:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
     <link rel="stylesheet" href="/website/styles/style.css">
-    <link rel="stylesheet" href="/visitor.css">
+    <link rel="stylesheet" href="/website/styles/visitor.css">
 
     <style>
        
@@ -43,7 +43,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url(/6.png);
+            background-image: url(/images/6.png);
             /* Added background image */
             background-size: cover;
             /* Ensures the image covers the entire body */
@@ -69,7 +69,7 @@
         /* Contributor Card */
         .contributor-card {
             /* background: #fff; */
-            background-image: url(/bg.png);
+            background-image: url(/images/bg.png);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
@@ -114,7 +114,7 @@
             margin-right: 30px;
             margin-top: -3px;
             padding: 8px 12px;
-            background-color: rgb(69, 65, 65); 
+            background-color: rgb(32 32 32); 
             color: #fff;
             border: none;
             border-radius: 20px;
@@ -122,12 +122,10 @@
             font-weight: bold;
         }
 
-
+        .contributor-card button:hover{
+            background-image: url(/images/7.png);
+        }
  
-
-
-
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .contributors-grid {
@@ -151,10 +149,6 @@
 </head>
 
 <body>
-
-
-
-
     <div id="particles-js"></div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <div class="stars" id="games_stars"></div>
@@ -167,25 +161,12 @@
         </div>
     </div>
 
-
-
-
-
     <!-- Contributors Section -->
     <div class="container">
         <h1 class="title1">Contributors of Planetoid</h1>
-
-        
-
-
         <div id="contributors" class="contributors-grid">
             <!-- Dynamic contributors will be added here -->
         </div>
-    
-
-
-
-
 
 <div class="visitor-counter">
 
@@ -194,22 +175,13 @@
         
             </div>
 
-
-
-
-
     </div>
-
-
-    
-  
-        
 
 </body>
 
-<script src="contributor.js"></script>
+<script src="/website/scripts/contributor.js"></script>
 
-<script src="visitor.js"></script>
+<script src="/website/scripts/visitor.js"></script>
 
 
 </html>
