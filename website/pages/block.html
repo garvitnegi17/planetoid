@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block Game</title>
+  <link rel="stylesheet" href="../styles/block.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h1>Block Game</h1>
+      <button id="start-game" class="btn">Start Game</button>
+      <div class="scoreboard">
+        <h3>Score</h3>
+        <p id="score">0</p>
+      </div>
+      <div class="controls">
+        <button class="btn control" id="left-btn">←</button>
+        <button class="btn control" id="down-btn">↓</button>
+        <button class="btn control" id="right-btn">→</button>
+      </div>
+    </div>
+    <div class="game-area" id="game-area"></div>
+  </div>
+  <script src="../scripts/block.js"></script>
+</body>
+</html>

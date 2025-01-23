@@ -1,0 +1,164 @@
+/* Global styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1e1e2f;
+    color: #fff;
+  }
+  
+  /* Container for the game */
+  .container {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    height: 90vh;
+    border: 2px solid #333;
+    background: #2a2a3d;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 25%;
+    background: #1e1e2f;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-right: 2px solid #333;
+  }
+  
+  .sidebar h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .scoreboard {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .scoreboard h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  #score {
+    font-size: 1.2rem;
+    color: #00ff7f;
+  }
+  
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btn:hover {
+    background: #3e8e41;
+  }
+  
+  .control {
+    padding: 15px;
+    font-size: 1.5rem;
+  }
+  
+  /* Game Area */
+  .game-area {
+    width: 75%;
+    display: grid;
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    gap: 1px;
+    background: #222;
+    position: relative;
+  }
+  
+  .cell {
+    width: 100%;
+    height: 100%;
+    background: #444;
+    transition: background 0.3s ease;
+  }
+  
+  /* Active piece colors */
+  .active {
+    background: #ff5733; /* Default active color */
+  }
+  
+  /* Specific shape colors (based on classes) */
+  .cell.t-shape {
+    background: #9b59b6;
+  }
+  
+  .cell.z-shape {
+    background: #e74c3c;
+  }
+  
+  .cell.s-shape {
+    background: #2ecc71;
+  }
+  
+  .cell.square-shape {
+    background: #f1c40f;
+  }
+  
+  .cell.line-shape {
+    background: #3498db;
+  }
+  
+  /* Occupied cells retain colors */
+  .occupied.t-shape {
+    background: #9b59b6;
+  }
+  
+  .occupied.z-shape {
+    background: #e74c3c;
+  }
+  
+  .occupied.s-shape {
+    background: #2ecc71;
+  }
+  
+  .occupied.square-shape {
+    background: #f1c40f;
+  }
+  
+  .occupied.line-shape {
+    background: #3498db;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar h1 {
+      font-size: 1.5rem;
+    }
+  
+    .btn {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+    }
+  
+    .control {
+      padding: 12px;
+      font-size: 1.2rem;
+    }
+  }
+  
