@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: radial-gradient(circle, #000020, #09092a);
+    font-family: Arial, sans-serif;
+  }
+  canvas {
+    display: block;
+  }
+  #overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  #overlay h1 {
+    margin-bottom: 20px;
+    font-size: 48px;
+  }
+  .difficulty-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background: #444;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .difficulty-buttons button:hover {
+    background: #666;
+    transform: scale(1.1);
+  }
+  .difficulty-buttons button:active {
+    transform: scale(0.95);
+  }
+  .difficulty-buttons button.pulse {
+    animation: pulse 1.2s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  #countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    font-size: 72px;
+    color: white;
+    z-index: 10;
+    display: none;
+    opacity: 0;
+    animation: zoomIn 1.5s forwards, floatUp 1.5s ease-in-out infinite alternate, darkLight 2s infinite;
+  }
+  @keyframes zoomIn {
+    0% {
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes floatUp {
+    0% {
+      transform: translate(-50%, -50%) scale(1) translateY(0);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1) translateY(-20px);
+    }
+  }
+  @keyframes darkLight {
+    0% {
+      color: #ff0000;
+    }
+    50% {
+      color: #ffff00;
+    }
+    100% {
+      color: #00ff00;
+    }
+  }
+  #scoreboard {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+  }
+  #gameOverModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+  }
+  .modal-content {
+    background: #222;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    width: 300px;
+  }
+  .modal-content h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  .modal-content p {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .modal-buttons button {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  .modal-buttons button:hover {
+    background: #666;
+  }
+  .modal-buttons button:active {
+    transform: scale(0.95);
+  }
