@@ -5,6 +5,8 @@ const leftButton = document.getElementById('left-btn');
 const rightButton = document.getElementById('right-btn');
 const downButton = document.getElementById('down-btn');
 
+const topButton = document.getElementById('top-btn'); // Add a button for rotation
+
 let grid = [];
 let currentPiece = null;
 let score = 0;
@@ -12,6 +14,7 @@ let gameInterval = null;
 
 const ROWS = 20;
 const COLS = 10;
+
 
 // Shapes of blocks with corresponding class names for colors
 const shapes = [
@@ -38,6 +41,7 @@ function createGrid() {
   }
 }
 
+
 // Spawn a random block
 function spawnPiece() {
   const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
@@ -54,6 +58,53 @@ function spawnPiece() {
   }
   drawPiece();
 }
+
+//-------------------------------------------------------
+
+// Rotate the current piece
+function rotatePiece() {
+  if (!currentPiece) return;
+  const oldShape = currentPiece.shape;
+  const newShape = oldShape[0].map((_, colIndex) =>
+    oldShape.map(row => row[colIndex]).reverse()
+  );
+  
+  const oldClass = currentPiece.className;
+
+  // Check if the rotation is valid
+  if (canRotate(newShape)) {
+    clearPiece();
+    currentPiece.shape = newShape;
+    drawPiece();
+  }
+}
+
+// Check if the piece can rotate
+function canRotate(newShape) {
+  return newShape.every((row, i) => {
+    return row.every((cell, j) => {
+      if (!cell) return true;
+      const newRow = currentPiece.row + i;
+      const newCol = currentPiece.col + j;
+      if (newRow >= ROWS || newCol < 0 || newCol >= COLS) return false;
+      return !grid[newRow][newCol].classList.contains('occupied');
+    });
+  });
+}
+
+
+
+
+
+
+//----------------------------------------------------
+
+
+
+
+
+
+
 
 // Draw the current piece
 function drawPiece() {
@@ -146,6 +197,8 @@ function checkLines() {
   }
 }
 
+
+
 // Start the game
 function startGame() {
   createGrid();
@@ -157,8 +210,17 @@ function startGame() {
   }, 500);
 }
 
+
 // Event listeners
 startButton.addEventListener('click', startGame);
 leftButton.addEventListener('click', () => movePiece('left'));
 rightButton.addEventListener('click', () => movePiece('right'));
 downButton.addEventListener('click', () => movePiece('down'));
+topButton.addEventListener('click', rotatePiece); // Event listener for rotation
+
+// Add touch event listeners for mobile devices
+leftButton.addEventListener('touchstart', () => movePiece('left'));
+rightButton.addEventListener('touchstart', () => movePiece('right'));
+downButton.addEventListener('touchstart', () => movePiece('down'));
+topButton.addEventListener('touchstart', rotatePiece);
+

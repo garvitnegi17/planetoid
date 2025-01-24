@@ -10,6 +10,18 @@ body {
     color: #fff;
   }
   
+
+  /*-----------------------------*/
+
+  
+  
+  
+  
+
+  
+  /*------------------------------*/
+
+
   /* Container for the game */
   .container {
     display: flex;
@@ -54,16 +66,18 @@ body {
     color: #00ff7f;
   }
   
+  
   .controls {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
     margin-top: 20px;
   }
   
   .btn {
-    padding: 10px 15px;
-    font-size: 1rem;
+    padding: 10px 20px;
+    font-size: 1.2rem;
     background: #4caf50;
     color: white;
     border: none;
@@ -151,14 +165,25 @@ body {
       font-size: 1.5rem;
     }
   
+    
     .btn {
-      padding: 8px 12px;
-      font-size: 0.9rem;
+      padding: 8px 15px;
+      font-size: 1rem;
     }
-  
+    
+    
+    
     .control {
       padding: 12px;
       font-size: 1.2rem;
+    }
+  }
+  
+
+  @media (max-width: 480px) {
+    .btn {
+      padding: 5px 10px;
+      font-size: 0.8rem;
     }
   }
   
