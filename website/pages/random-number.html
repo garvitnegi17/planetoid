@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Number Quest</title>
+    <link rel="stylesheet" href="../styles/random-number.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🚀 Cosmic Number Quest 🌌</h1>
+        
+        <div id="highScoreDisplay">
+            <h3>High Scores</h3>
+            <div id="highScoreList"></div>
+            <button onclick="clearHighScores()" class="clear-cache-btn">🗑️ Clear High Scores</button>
+        </div>
+        
+        <div id="rangeSetup">
+            <div class="input-group">
+                <label for="rangeStart">Start Range</label>
+                <input type="number" id="rangeStart" placeholder="Start Range" value="1">
+            </div>
+            <div class="input-group">
+                <label for="rangeEnd">End Range</label>
+                <input type="number" id="rangeEnd" placeholder="End Range" value="100">
+            </div>
+            <button onclick="startGame()" class="launch-btn">Launch Mission</button>
+        </div>
+
+        <div id="gamePlay" style="display:none;">
+            <div class="input-group">
+                <label for="guessInput">Your Cosmic Guess</label>
+                <input type="number" id="guessInput" placeholder="Enter Your Cosmic Guess">
+            </div>
+            <button onclick="checkGuess()" class="guess-btn">Submit Guess</button>
+        </div>
+
+        <div id="message" class="cosmic-message"></div>
+        <div id="scoreBoard">
+            <div class="attempts-display">Attempts: <span id="attempts">0</span></div>
+            <div class="score-display">Score: <span id="score">0</span></div>
+        </div>
+
+        <div id="achievements" class="achievement"></div>
+
+        <div class="game-icons">
+            <div class="cell ufo"></div>
+            <div class="cell space-shuttle"></div>
+        </div>
+    </div>
+
+    <script src="../scripts/random-number.js"></script>
+</body>
+</html>

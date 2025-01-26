@@ -1,0 +1,139 @@
+:root {
+    --primary-color: #1a237e;
+    --secondary-color: #3f51b5;
+    --accent-color: #ff4081;
+    --text-color: #64ffda;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #000428, #004e92);
+    background-image: url("/images/pl.png");
+    background-size: cover;
+    color: white;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.game-container {
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 20px;
+    padding: 40px;
+    width: 500px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.7);
+    backdrop-filter: blur(15px);
+    position: relative;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+input, button {
+    font-family: 'Orbitron', sans-serif;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+input {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: #ff1744;
+}
+
+.cosmic-message {
+    font-size: 1.5em;
+    margin: 20px 0;
+    color: var(--text-color);
+    min-height: 50px;
+}
+
+#scoreBoard {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: 1.2em;
+}
+
+#highScoreDisplay {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+#highScoreList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.clear-cache-btn {
+    background-color: #ff4081;
+    margin-top: 10px;
+}
+
+.achievement {
+    background-color: rgba(255,255,255,0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.game-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cell.ufo, .cell.space-shuttle {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
+    margin: 0 20px;
+}
+
+.cell.ufo {
+    background-image: url('https://static-00.iconduck.com/assets.00/flying-saucer-emoji-2048x1845-4gyquu9x.png');
+}
+
+.cell.space-shuttle {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/4825/4825026.png');
+}
