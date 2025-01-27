@@ -1,0 +1,294 @@
+:root {
+    --canvas-color: blur(10px);
+    --text-color: rgba(255, 255, 255, 0.87);
+    --sidebar-color: #343457;
+    --button-color: #0575E6;
+    --hover-color: #7db3e3;
+    --background-color: #121212;
+    --background-secondary-color: #1f1f1f;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url('/images/breakout images/breakback.png') no-repeat center center fixed; /* Path to your image */
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+h1 {
+    font-size: 2.75rem;
+    color: var(--text-color);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+canvas {
+    background-color: var(--canvas-color);
+    display: block;
+    border-radius: 5px;
+    width: 800px;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.game-container {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 1;
+    max-width: 90%; /* Adjust for mobile screens */
+    width: 800px; /* Default width for larger screens */
+    margin: auto; /* Center the container */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+    cursor: pointer;
+    border: 0;
+    padding: 0.625rem 1.25rem;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 10px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.rules-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(234, 230, 230, 0.8);
+    color: rgb(3, 3, 3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.rules-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.rules-content h2 {
+    margin: 0 0 1rem;
+}
+
+.rules-content p {
+    margin: 0.5rem 0;
+}
+
+.rules-container .btn {
+    margin-top: 1rem;
+}
+
+/* Control Buttons Container */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Reduce space between buttons */
+    margin-top: 10px; /* Adjust margin to avoid overflow */
+    position: relative; /* Keep them within the container */
+}
+
+/* Control Buttons Styling */
+.control-btn {
+    background: linear-gradient(145deg, #0575e6, #021b87); /* Gradient background */
+    color: var(--text-color);
+    font-size: 1rem; /* Smaller font size */
+    font-weight: bold;
+    padding: 12px 24px; /* Reduced padding */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -2px -2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadows */
+    transition: all 0.3s ease; /* Smooth transition for hover and active states */
+    text-align: center;
+    margin-top: 10px;
+}
+
+.control-btn:hover {
+    background: linear-gradient(145deg, #021b87, #0575e6); /* Reversed gradient on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4), -4px -4px 8px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+}
+
+.control-btn:active {
+    transform: scale(0.95); /* Slight shrink effect when clicked */
+}
+
+.control-btn:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+/* Make buttons responsive */
+@media screen and (max-width: 768px) {
+    /* Control buttons container should stay below the game container */
+    .controls {
+        gap: 8px;
+        margin-top: 10px; /* Adjust top margin */
+        justify-content: center;
+    }
+
+    /* Adjust button size for smaller screens */
+    .control-btn {
+        font-size: 0.9rem; /* Smaller font size */
+        padding: 10px 20px; /* Reduced button size */
+    }
+}
+
+/* Responsive Design for Tablets */
+@media screen and (max-width: 1024px) {
+    .controls {
+        gap: 10px;
+    }
+
+    .control-btn {
+        font-size: 1rem;
+        padding: 11px 22px;
+        margin-top: 10px; /* Ensure spacing below the heading */
+    }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0.5rem; /* Adjust padding for smaller devices */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin: 10px 0; /* Reduce margin for compact layout */
+    }
+
+    canvas {
+        width: 100%; /* Full width for canvas */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .game-container {
+        width: 100%; /* Full width for mobile */
+        padding: 10px; /* Adjust padding */
+        margin-top: 10px; /* Ensure spacing below the heading */
+    }
+
+    .btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .rules-content {
+        padding: 1rem;
+    }
+
+    .rules-content h2 {
+        font-size: 1.25rem;
+    }
+
+    .rules-content p {
+        font-size: 0.875rem;
+    }
+
+    .square {
+        height: 100px; /* Smaller squares for mobile */
+        width: 100px;
+        margin: 5px;
+    }
+
+    .square:nth-child(10) {
+        display: none; /* Hide the 10th container on mobile */
+    }
+
+    .grid {
+        padding: 10px; /* Reduce grid padding for smaller screens */
+    }
+}
+
+/* Responsive Design for Tablets */
+@media screen and (max-width: 1024px) {
+    body {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    canvas {
+        width: 90%; /* Slightly smaller canvas for tablets */
+        height: auto;
+    }
+
+    .game-container {
+        width: 90%; /* Centered and responsive */
+        padding: 15px;
+        margin-top: 10px; /* Ensure proper spacing below the heading */
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .grid {
+        padding: 15px;
+    }
+
+    .square {
+        height: 120px;
+        width: 120px;
+    }
+}
