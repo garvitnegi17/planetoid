@@ -22,9 +22,13 @@ Welcome to **Planetoid**, a fun and interactive website featuring a variety of m
 ### Featured In
 
 <table>
-<tr>
-      <th>Event Logo</th>
-      <th>Event Name</th>
+<te>
+      <td>Event Logo</td>
+      <td>Event Name</td>
+</tr>
+  <tr>
+        <td><img src="images/iwoc.png" width="200" height="auto" loading="lazy" alt="SWOC"/></td>
+        <td><a href="https://innogeeks.in/">Innogeeks Winter of Code Season-3 (IWOC) </a>2025</td>
     </tr>
 <tr>
         <td><img src="images/swoc.jpeg" width="200" height="auto" loading="lazy" alt="SWOC"/></td>
