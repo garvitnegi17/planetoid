@@ -31,14 +31,14 @@ function fly(event) {
 
 function gameLoop() {
   if (isGameOver) return;
-  
+
   birdVelocity += gravity;
   birdY += birdVelocity;
-  
+
   if (birdY > gameContainer.clientHeight - bird.clientHeight || birdY < 0) {
     gameOver();
   }
-  
+
   bird.style.top = birdY + "px";
   updateScore();
   moveObstacles();
@@ -54,16 +54,16 @@ function generateObstacle() {
 
   const gap = 200; // Increased gap
   const obstacleHeight = Math.random() * (gameContainer.clientHeight - gap);
-  
+
   obstacleTop.style.height = obstacleHeight + "px";
   obstacleTop.style.left = gameContainer.clientWidth + "px";
-  
+
   obstacleBottom.style.height = (gameContainer.clientHeight - obstacleHeight - gap) + "px";
   obstacleBottom.style.left = gameContainer.clientWidth + "px";
-  
+
   gameContainer.appendChild(obstacleTop);
   gameContainer.appendChild(obstacleBottom);
-  
+
   obstacles.push({ top: obstacleTop, bottom: obstacleBottom });
 }
 
@@ -86,7 +86,7 @@ function checkCollision() {
     const birdRect = bird.getBoundingClientRect();
     const topRect = obstacle.top.getBoundingClientRect();
     const bottomRect = obstacle.bottom.getBoundingClientRect();
-    
+
     if (birdRect.left < topRect.right &&
         birdRect.right > topRect.left &&
         (birdRect.top < topRect.bottom || birdRect.bottom > bottomRect.top)) {
@@ -96,10 +96,34 @@ function checkCollision() {
 }
 
 function gameOver() {
-  isGameOver = true;
-  alert("Game Over! Your score: " + score);
-  location.reload(); // Restart the game
+    isGameOver = true;
+    document.getElementById("final-score").textContent = score; // Update final score
+    document.getElementById("game-over").style.display = "block"; // Show game-over popup
 }
+
+function restartGame() {
+  birdY = 200; // Reset bird position
+  birdVelocity = 0;
+  isGameOver = false;
+  score = 0;
+
+  // Remove all obstacles
+  obstacles.forEach(obstacle => {
+      obstacle.top.remove();
+      obstacle.bottom.remove();
+  });
+  obstacles = [];
+
+  // Hide the game-over popup
+  document.getElementById("game-over").style.display = "none";
+
+  // Reset score display
+  scoreElement.textContent = score;
+
+  // Restart game loop
+  startGame();
+}
+
 
 function updateScore() {
   score++;
