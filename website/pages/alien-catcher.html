@@ -38,6 +38,14 @@
       </div>
     </div>
 
+    <!-- Game Over Message -->
+<div id="game-over" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+background: rgba(0, 0, 0, 0.8); color: white; padding: 20px; border-radius: 10px; text-align: center; z-index: 100;">
+<h2>Game Over!👽👽👽</h2>
+<p>Your Score: <span id="final-score">0</span></p>
+<button onclick="restartGame()" style="background: rgb(32, 150, 18); padding: 10px 20px; border: none; cursor: pointer; color: black;">Restart</button>
+</div>
+
     <script src="../scripts/alien-catcher.js"></script>
   </body>
 </html>
