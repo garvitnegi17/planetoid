@@ -17,6 +17,25 @@
 
     <style>
        
+       body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url(/images/6.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+
+        a:-webkit-any-link {
+            color: rgba(255, 255, 255, 0.87);
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Silkscreen';
+        }
+
 
         .container {
             width: 90%;
@@ -28,32 +47,11 @@
         /* Title Styling */
         .title1 {
             font-family: 'Silkscreen';
-            /* font-weight: bold; */
             font-size: 2rem;
             color: rgba(255, 255, 255, 0.87);
             text-transform: uppercase;
-            /* Makes the text all caps */
             margin-bottom: 30px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            /* Adds a subtle shadow effect */
-        }
-
-        /* Body Styling */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: url(/images/6.png);
-            /* Added background image */
-            background-size: cover;
-            /* Ensures the image covers the entire body */
-            background-position: center;
-            /* Center the image */
-            background-repeat: no-repeat;
-            /* Ensures the image doesn’t repeat */
-            background-attachment: fixed;
-            /* Keeps the image fixed during scrolling */
-            /* color: #333; */
         }
 
         /* Contributors Grid */
@@ -66,21 +64,21 @@
             max-width: 1200px;
         }
 
-        /* Contributor Card */
+        /* Contributor Card Styling */
         .contributor-card {
-            /* background: #fff; */
             background-image: url(/images/bg.png);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
         }
 
         .contributor-card:hover {
-            transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+            transform: scale(1.05);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.2);
         }
 
         .contributor-card img {
@@ -89,44 +87,99 @@
             border-radius: 50%;
             margin-bottom: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: pulse 1.5s infinite;
         }
 
         .contributor-card h3 {
             margin: 10px 0;
             font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.87);
+            font-family: 'Micro 5', sans-serif;
         }
 
-       .contributor-card p {
+        .contributor-card p {
             font-size: 0.9rem;
-            color: #666;
+            color: #ccc;
         }
 
-        a:-webkit-any-link {
-            color: rgba(255, 255, 255, 0.87);
-            cursor: pointer;
-            text-decoration: none;
-            font-family: 'Silkscreen';
-        }
-
-        .contributor-card button{
+        .contributor-card button {
             font-size: 12px;
-            margin-right: 30px;
-            margin-top: -3px;
             padding: 8px 12px;
-            background-color: rgb(32 32 32); 
+            background-color: rgb(32 32 32);
             color: #fff;
             border: none;
             border-radius: 20px;
             cursor: pointer;
             font-weight: bold;
+            transition: background-color 0.3s ease;
         }
 
-        .contributor-card button:hover{
-            background-image: url(/images/7.png);
+        .contributor-card button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
- 
+
+        /* Pulse Effect Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Hover Effects */
+        .contributor-card:hover img {
+            animation: none; /* Stops the pulse effect on hover */
+            transform: scale(1.05);
+        }
+
+        /* Scroll to Top Button */
+        #scrollButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #222;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #scrollButton:hover {
+            background-color: #444;
+        }
+
         /* Responsive Design */
+        @media (max-width: 768px) {
+            .contributors-grid {
+                padding: 10px;
+            }
+
+            .contributor-card {
+                padding: 15px;
+            }
+
+            .contributor-card h3 {
+                font-size: 1rem;
+            }
+
+            .contributor-card p {
+                font-size: 0.85rem;
+            }
+        }
+            /* Responsive Design */
         @media (max-width: 768px) {
             .contributors-grid {
                 padding: 10px;
