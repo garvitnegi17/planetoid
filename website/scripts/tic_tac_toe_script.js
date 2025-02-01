@@ -22,6 +22,9 @@ const spaceShuttleScoreElement = document.getElementById('spaceShuttleScore');
 const playWithComputerButton = document.getElementById('playWithComputer');
 const playWithPlayerButton = document.getElementById('playWithPlayer');
 const modeSelection = document.getElementById('modeSelection');
+const overallWinnerElement = document.getElementById('overall-winner');
+const winnerNameElement = document.getElementById('winner-name');
+const winnerScoreElement = document.getElementById('winner-score');
 
 let spaceShuttleTurn;
 let ufoScore = 0;
@@ -29,16 +32,15 @@ let spaceShuttleScore = 0;
 let round = 1;
 let playWithComputer = false;
 
-// Event listeners for mode selection
 playWithComputerButton.addEventListener('click', () => {
   playWithComputer = true;
-  modeSelection.style.display = 'none'; // Hide mode selection after choice
+  modeSelection.style.display = 'none';
   startGame();
 });
 
 playWithPlayerButton.addEventListener('click', () => {
   playWithComputer = false;
-  modeSelection.style.display = 'none'; // Hide mode selection after choice
+  modeSelection.style.display = 'none';
   startGame();
 });
 
@@ -68,7 +70,7 @@ function handleClick(e) {
   } else {
     swapTurns();
     if (playWithComputer && spaceShuttleTurn) {
-      setTimeout(computerMove, 2000); // Add 2-second delay for the computer's move
+      setTimeout(computerMove, 2000);
     } else {
       setBoardHoverClass();
     }
@@ -79,7 +81,7 @@ function computerMove() {
   const availableCells = [...cellElements].filter(
     (cell) => !cell.classList.contains(UFO_CLASS) && !cell.classList.contains(SPACE_SHUTTLE_CLASS)
   );
-  if (availableCells.length === 0) return; // If no available cells, return
+  if (availableCells.length === 0) return;
   const randomCell = availableCells[Math.floor(Math.random() * availableCells.length)];
   placeMark(randomCell, SPACE_SHUTTLE_CLASS);
   if (checkWin(SPACE_SHUTTLE_CLASS)) {
@@ -104,15 +106,11 @@ function endGame(draw) {
       ufoScore++;
     }
   }
-
   updateScores();
-
   round++;
   if (round > 5) {
     setTimeout(() => {
       declareOverallWinner();
-      resetScores();
-      round = 1;
     }, 500);
   } else {
     winningMessageElement.classList.add('show');
@@ -164,11 +162,7 @@ function declareOverallWinner() {
       : spaceShuttleScore > ufoScore
       ? 'Space Shuttle'
       : 'No one';
-  alert(`Overall Winner: ${winner}!`);
-}
-
-function resetScores() {
-  ufoScore = 0;
-  spaceShuttleScore = 0;
-  updateScores();
+  winnerNameElement.innerText = winner;
+  winnerScoreElement.innerText = winner === 'No one' ? 'N/A' : winner === 'UFO' ? ufoScore : spaceShuttleScore;
+  overallWinnerElement.style.display = 'block';
 }
