@@ -8,6 +8,7 @@
  
 
   :root{
+    --bullet-color:black;
     --background-color:rgb(237, 235, 235);
     --text-color:rgb(74, 73, 73);
     --tertiary-color:rgb(110, 110, 142);
@@ -19,6 +20,7 @@
 }
 
 .dark-mode{
+  --bullet-color:yellow;
     --background-color:rgb(65, 65, 65);
     --text-color:rgb(244, 240, 240);
     --tertiary-color:rgb(174, 174, 241);
@@ -104,7 +106,7 @@ header ul{
   
   .game {
     position: relative;
-    height: 80vh;
+    height:80vh;
   }
   
   .player {
@@ -135,7 +137,7 @@ header ul{
     position: absolute;
     width: 5px;
     height: 20px;
-    background: yellow;
+    background: var(--bullet-color);
     border-radius: 2px;
   }
   
@@ -185,6 +187,11 @@ header ul{
 
     .player{
       bottom: 0%;
+    }
+
+    .game {
+      position: relative;
+      height:75vh;
     }
 
     

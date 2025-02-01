@@ -13,6 +13,7 @@ let enemies = [];
 let bullets = [];
 let gameRunning = false;
 let enemySpawnInterval;
+let bulletFireInterval;
 
 // for dark and light theme
 const mode=document.getElementById("mode");
@@ -54,7 +55,6 @@ restartButton.addEventListener('click', () => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') movePlayer(-1);
   if (e.key === 'ArrowRight') movePlayer(1);
-  if (e.key === ' ') shootBullet(); // Space key to shoot bullets
 });
 
 // Touch-based controls: Tap to fire or move left/right
@@ -64,10 +64,7 @@ gameContainer.addEventListener('click', (e) => {
   const playerRect = player.getBoundingClientRect();
   const tapX = e.clientX;
 
-  if (tapX >= playerRect.left && tapX <= playerRect.right) {
-    // Tap on the spaceship -> Shoot bullet
-    shootBullet();
-  } else if (tapX < playerRect.left) {
+  if (tapX < playerRect.left) {
     // Tap left of the spaceship -> Move left
     movePlayer(-1);
   } else if (tapX > playerRect.right) {
@@ -76,13 +73,18 @@ gameContainer.addEventListener('click', (e) => {
   }
 });
 
+// Function to shoot bullets automatically at intervals
+function startAutoFire() {
+  bulletFireInterval = setInterval(shootBullet, 200); // Fire bullet every 500ms
+}
+
 // Function to move the player
 function movePlayer(direction) {
   const playerLeft = parseInt(getComputedStyle(player).left);
   if (direction === -1 && playerLeft > 0) {
-    player.style.left = playerLeft - 15 + 'px';
+    player.style.left = playerLeft - 30 + 'px';
   } else if (direction === 1 && playerLeft < window.innerWidth - 50) {
-    player.style.left = playerLeft + 15 + 'px';
+    player.style.left = playerLeft + 30 + 'px';
   }
 }
 
@@ -91,8 +93,8 @@ function shootBullet() {
   const bullet = document.createElement('div');
   bullet.classList.add('bullet');
   const playerLeft = parseInt(getComputedStyle(player).left);
-  bullet.style.left = playerLeft + 20 + 'px'; // Center bullet
-  bullet.style.top = window.innerHeight - 160 + 'px'; // Just above the player
+  bullet.style.left = playerLeft + 0 + 'px'; // Center bullet
+  bullet.style.top = window.innerHeight - 200 + 'px'; // Just above the player
   gameContainer.appendChild(bullet);
   bullets.push(bullet);
 }
@@ -188,6 +190,7 @@ function startGame() {
   scoreDisplay.textContent = 'Score: 0';
   gameOverText.classList.add('hidden');
   enemySpawnInterval = setInterval(spawnEnemy, 1000); // Spawn enemies every second
+  startAutoFire();
   requestAnimationFrame(gameLoop); // Start the game loop
 }
 
@@ -198,6 +201,7 @@ function resetGame() {
   bullets = [];
   enemies = [];
   clearInterval(enemySpawnInterval);
+  clearInterval(bulletFireInterval);
   gameOverText.classList.add('hidden');
 }
 
@@ -205,12 +209,14 @@ function resetGame() {
 function endGame() {
   gameRunning = false;
   clearInterval(enemySpawnInterval);
+  clearInterval(bulletFireInterval);
   gameOverText.classList.remove('hidden');
 }
 
 // Main game loop
 function gameLoop() {
   if (!gameRunning) return;
+  movePlayer();
   moveEnemies();
   moveBullets();
   requestAnimationFrame(gameLoop);
