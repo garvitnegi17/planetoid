@@ -1,17 +1,72 @@
-body {
+* {
     margin: 0;
     overflow: hidden;
     font-family: Arial, sans-serif;
-    background-color: black;
-    background-size: cover;
-    color: white;
+    
   }
-  
+
+ 
+
+  :root{
+    --background-color:rgb(237, 235, 235);
+    --text-color:rgb(74, 73, 73);
+    --tertiary-color:rgb(110, 110, 142);
+    --border-color:blue;
+    --background-menu:#4caf50;
+    --background-gameOver:#f44336;
+    
+    
+}
+
+.dark-mode{
+    --background-color:rgb(65, 65, 65);
+    --text-color:rgb(244, 240, 240);
+    --tertiary-color:rgb(174, 174, 241);
+    --background-menu:#0d7e0d;
+    --background-gameOver:#a44933;
+
+
+
+}
+
+
+#mode{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 25vw;
+}
+
+header{
+    height: 15vh;
+    background-color:var(--tertiary-color) ;
+    color:var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vmin;
+    font-weight: bold;
+    padding-left: 25vw;
+
+}
+
+header ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-left: 25vw;
+
+}  
   
   .game-container {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    height: 80vh;
+    background-color:var(--background-color);
+    color:var(--text-color);
+    border:var(--text-color) 20px solid;
+    
   }
 
   .menu {
@@ -24,20 +79,18 @@ body {
   }
   
   .menu .btn {
-    margin: 10px;
+    margin-top: 100px;
     padding: 10px 20px;
     font-size: 1.2rem;
-    background: #4caf50;
-    color: rgb(236, 129, 129);
+    background: var(--background-menu);
+    color: var(--text-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
+    border:var(--text-color) 2px solid;
   }
   
-  .menu .btn:hover {
-    background: #45a049;
-  }
   
   .hidden {
     display: none;
@@ -51,19 +104,22 @@ body {
   
   .game {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    height: 80vh;
   }
   
   .player {
-    position: absolute;
-    bottom: 20px;
+    position:absolute;
+    bottom: 0%;
     left: 50%;
     width: 80px;
     height: 80px;
     background: url('/images/space-shooter/ship.png') no-repeat center center;
     background-size: cover;
     transform: translateX(-50%);
+  }
+
+  .player:hover{
+    cursor: pointer;
   }
   
   .enemy {
@@ -85,6 +141,7 @@ body {
   
   #score {
     position: absolute;
+    font-weight: bold;
     top: 10px;
     left: 10px;
     font-size: 20px;
@@ -101,17 +158,16 @@ body {
   #game-over button {
     padding: 10px 20px;
     font-size: 1.2rem;
-    background: #f44336;
-    color: white;
+    background: var(--background-gameOver);
+    color: var(--text-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
+    border:var(--text-color) 2px solid;
   }
   
-  #game-over button:hover {
-    background: #e53935;
-  }
+  
   
   @media (max-width: 768px) {
     .menu h1 {
@@ -126,5 +182,13 @@ body {
     #rules {
       font-size: 1rem;
     }
+
+    .player{
+      bottom: 0%;
+    }
+
+    
   }
+  
+
   

@@ -11,10 +11,19 @@ const restartButton = document.getElementById('restart-game');
 let score = 0;
 let enemies = [];
 let bullets = [];
-let moveLeft = false;
-let moveRight = false;
 let gameRunning = false;
 let enemySpawnInterval;
+
+// for dark and light theme
+const mode=document.getElementById("mode");
+mode.onclick=function(){
+  document.body.classList.toggle("dark-mode");
+  if(document.body.classList.contains("dark-mode")){
+      mode.src="../../images/sun.png";
+  }else{
+      mode.src="../../images/moon.png ";
+  }
+}
 
 // Menu navigation
 startButton.addEventListener('click', () => {
@@ -41,25 +50,39 @@ restartButton.addEventListener('click', () => {
   startGame();
 });
 
-// Player movement
+// Player movement using keyboard
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowLeft') moveLeft = true;
-  if (e.key === 'ArrowRight') moveRight = true;
+  if (e.key === 'ArrowLeft') movePlayer(-1);
+  if (e.key === 'ArrowRight') movePlayer(1);
   if (e.key === ' ') shootBullet(); // Space key to shoot bullets
 });
 
-document.addEventListener('keyup', (e) => {
-  if (e.key === 'ArrowLeft') moveLeft = false;
-  if (e.key === 'ArrowRight') moveRight = false;
+// Touch-based controls: Tap to fire or move left/right
+gameContainer.addEventListener('click', (e) => {
+  if (!gameRunning) return;
+
+  const playerRect = player.getBoundingClientRect();
+  const tapX = e.clientX;
+
+  if (tapX >= playerRect.left && tapX <= playerRect.right) {
+    // Tap on the spaceship -> Shoot bullet
+    shootBullet();
+  } else if (tapX < playerRect.left) {
+    // Tap left of the spaceship -> Move left
+    movePlayer(-1);
+  } else if (tapX > playerRect.right) {
+    // Tap right of the spaceship -> Move right
+    movePlayer(1);
+  }
 });
 
 // Function to move the player
-function movePlayer() {
-  let playerLeft = parseInt(getComputedStyle(player).left);
-  if (moveLeft && playerLeft > 0) {
-    player.style.left = playerLeft - 5 + 'px';
-  } else if (moveRight && playerLeft < window.innerWidth - 50) {
-    player.style.left = playerLeft + 5 + 'px';
+function movePlayer(direction) {
+  const playerLeft = parseInt(getComputedStyle(player).left);
+  if (direction === -1 && playerLeft > 0) {
+    player.style.left = playerLeft - 15 + 'px';
+  } else if (direction === 1 && playerLeft < window.innerWidth - 50) {
+    player.style.left = playerLeft + 15 + 'px';
   }
 }
 
@@ -68,8 +91,8 @@ function shootBullet() {
   const bullet = document.createElement('div');
   bullet.classList.add('bullet');
   const playerLeft = parseInt(getComputedStyle(player).left);
-  bullet.style.left = playerLeft + 22 + 'px'; // Center bullet
-  bullet.style.top = window.innerHeight - 80 + 'px'; // Just above the player
+  bullet.style.left = playerLeft + 20 + 'px'; // Center bullet
+  bullet.style.top = window.innerHeight - 160 + 'px'; // Just above the player
   gameContainer.appendChild(bullet);
   bullets.push(bullet);
 }
@@ -78,7 +101,7 @@ function shootBullet() {
 function spawnEnemy() {
   const enemy = document.createElement('div');
   enemy.classList.add('enemy');
-  enemy.style.left = Math.random() * (window.innerWidth - 40) + 'px'; // Random horizontal position
+  enemy.style.left = Math.random() * (window.innerWidth - 100) + 'px'; // Random horizontal position
   enemy.style.top = '0px'; // Start at the top
   gameContainer.appendChild(enemy);
   enemies.push(enemy);
@@ -136,7 +159,7 @@ function checkCollisionWithEnemy(bullet, bulletIndex) {
       bullets.splice(bulletIndex, 1);
 
       // Update score
-      score=score+5;
+      score += 5;
       scoreDisplay.textContent = `Score: ${score}`;
     }
   });
@@ -188,7 +211,6 @@ function endGame() {
 // Main game loop
 function gameLoop() {
   if (!gameRunning) return;
-  movePlayer();
   moveEnemies();
   moveBullets();
   requestAnimationFrame(gameLoop);
