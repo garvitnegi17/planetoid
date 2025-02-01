@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Shooter</title>
+  <style>
+    body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: url("/images/Space Shooter/space.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#board {
+  position: relative;
+  width: 90vw; /* 90% of the viewport width */
+  height: 70vh; /* 70% of the viewport height */
+  margin: 20px auto;
+  border: 2px solid white;
+  background-color: black;
+  overflow: hidden;
+}
+
+#jet {
+  position: absolute;
+  width: 8vw; /* Jet width based on viewport */
+  height: 8vw; /* Jet height based on viewport */
+  max-width: 40px; /* Max width for larger screens */
+  max-height: 40px; /* Max height for larger screens */
+  background: url("/images/Space Shooter/rocket.png") no-repeat center center;
+  background-size: contain;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.bullets {
+  position: absolute;
+  bottom: 10%; /* Bottom 10% of the game board */
+  left: 50%;
+  width: 4vw; /* Bullet width relative to the viewport */
+  height: 4vw; /* Bullet height relative to the viewport */
+  max-width: 20px;
+  max-height: 20px;
+  background: url("/images/Space Shooter/bullet.png") no-repeat center center;
+  background-size: contain;
+  transform: translateX(-50%);
+}
+
+.rocks {
+  position: absolute;
+  top: 0;
+  width: 10vw; /* Rock width relative to the viewport */
+  height: 10vw; /* Rock height relative to the viewport */
+  max-width: 50px;
+  max-height: 50px;
+  background: url("/images/Space Shooter/alien.png") no-repeat center center;
+  background-size: contain;
+}
+
+#points {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  opacity: 0.7;
+  font-size: 5vw; /* Font size relative to viewport */
+  color: white;
+  z-index: 10;
+}
+
+.controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.btn {
+  width: 12vw; /* Button width relative to viewport */
+  height: 12vw; /* Button height relative to viewport */
+  max-width: 60px;
+  max-height: 60px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5vw; /* Button icon size relative to viewport */
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Media Query for smaller devices */
+@media screen and (max-width: 600px) {
+  #points {
+    font-size: 10vw; /* Larger font size on smaller screens */
+  }
+  .controls {
+    bottom: 10px; /* Adjust button placement for smaller screens */
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Controls -->
+  <div class="controls">
+    <div class="btn" id="left">⬅️</div>
+    <div class="btn" id="fire">🔫</div>
+    <div class="btn" id="right">➡️</div>
+  </div>
+
+  <div id="board">
+    <div class="rocks"></div>
+    <div id="jet"></div>
+  </div>
+  <div id="points">0</div>
+
+  <script src="/website/scripts/app.js" defer></script>
+
+</body>
+</html>
