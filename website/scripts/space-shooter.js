@@ -3,6 +3,9 @@ const player = document.querySelector('.player');
 const scoreDisplay = document.getElementById('score');
 const gameOverText = document.getElementById('game-over');
 const startButton = document.getElementById('start-game');
+const Button = document.getElementById('button');
+const left =document.getElementById('left');
+const right =document.getElementById('right');
 const rulesButton = document.getElementById('rules-btn');
 const rulesSection = document.getElementById('rules');
 const backButton = document.getElementById('back-btn');
@@ -57,31 +60,25 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') movePlayer(1);
 });
 
-// Touch-based controls: Tap to fire or move left/right
-gameContainer.addEventListener('click', (e) => {
-  if (!gameRunning) return;
+//using the left and right button
 
-  const playerRect = player.getBoundingClientRect();
-  const tapX = e.clientX;
+left.addEventListener('click',()=>{
+  movePlayer(-1);
+});
 
-  if (tapX < playerRect.left) {
-    // Tap left of the spaceship -> Move left
-    movePlayer(-1);
-  } else if (tapX > playerRect.right) {
-    // Tap right of the spaceship -> Move right
-    movePlayer(1);
-  }
+right.addEventListener('click',()=>{
+  movePlayer(1);
 });
 
 // Function to shoot bullets automatically at intervals
 function startAutoFire() {
-  bulletFireInterval = setInterval(shootBullet, 200); // Fire bullet every 500ms
+  bulletFireInterval = setInterval(shootBullet, 150); // Fire bullet every 150ms
 }
 
 // Function to move the player
 function movePlayer(direction) {
   const playerLeft = parseInt(getComputedStyle(player).left);
-  if (direction === -1 && playerLeft > 0) {
+  if (direction === -1 && playerLeft > 50) {
     player.style.left = playerLeft - 30 + 'px';
   } else if (direction === 1 && playerLeft < window.innerWidth - 50) {
     player.style.left = playerLeft + 30 + 'px';
@@ -189,6 +186,7 @@ function startGame() {
   score = 0;
   scoreDisplay.textContent = 'Score: 0';
   gameOverText.classList.add('hidden');
+  Button.classList.remove('hidden');
   enemySpawnInterval = setInterval(spawnEnemy, 1000); // Spawn enemies every second
   startAutoFire();
   requestAnimationFrame(gameLoop); // Start the game loop
