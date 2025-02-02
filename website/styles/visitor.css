@@ -1,0 +1,116 @@
+.visitor-counter {
+
+    display: inline-flex;
+    bottom: 20px;
+    right: 90px;
+    background-image: url(/6.png);
+    height: 35px;
+    width: 500px;
+    color: rgba(255, 255, 255, 0.87);
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15),
+                0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-family: 'Silkscreen';
+  }
+
+  .visitor-counter:hover {
+
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .website-counter {
+    font-size: 24px;
+    font-family: 'Silkscreen';
+  }
+
+  @media screen and (max-width: 480px) {
+
+    .visitor-counter {
+        height: 30px;
+        width: 280px;
+        font-size: 12px;
+    }
+
+    .website-counter {
+        font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .visitor-counter {
+        height: 32px;
+        width: 320px;
+        font-size: 14px;
+    }
+
+    .website-counter {
+        font-size: 14px;
+    }
+  }
+
+/* Scroll to Top Button */
+#scrollButton {
+  position: fixed;
+  bottom: 50px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Prevent interaction when hidden */
+  transition: opacity 0.5s ease; /* Smooth fade-in effect */
+}
+
+#scrollButton.visible {
+  opacity: 1; /* Fully visible */
+  pointer-events: auto; /* Enable interaction */
+}
+
+.outer-circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+                #ffffff 0deg,
+                #ffffff var(--scroll-progress, 0deg),
+                #1e65d900 var(--scroll-progress, 0deg),
+                #d5e7ec00 360deg
+            );
+  transform: rotate(-90deg); /* Start animation from top */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.inner-circle {
+  width: 45px;
+  height: 45px;
+  background: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgb(0 0 0);
+}
+
+.arrow {
+  font-size: 40px;
+  color: #ffffff;
+  font-weight: bolder;
+  transform: rotate(90deg); /* Fixed direction to the right */
+}

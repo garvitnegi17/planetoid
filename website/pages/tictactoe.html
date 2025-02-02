@@ -43,6 +43,16 @@
             <span data-winning-message-text></span>
             <button id="winningMessageButton">Play Again</button>
         </div>
+
+        <!-- Overall Winner Message -->
+        <div id="overall-winner" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.8); color: white; padding: 20px; border-radius: 10px; text-align: center; z-index: 100;">
+            <h2>🏆 Overall Winner!</h2>
+            <p>Winner: <span id="winner-name">Player 1</span></p>
+            <p>Final Score: <span id="winner-score">0</span></p>
+            <button onclick="window.location.href='../pages/tictactoe.html';" style="background: cyan; padding: 10px 20px; border: none; cursor: pointer; color: black;">Play Again!</button>
+        </div>
+
     </div>
     <a href="../pages/games.html" id="goback"><button>Go Back</button></a>
     <script src="../scripts/tic_tac_toe_script.js"></script>

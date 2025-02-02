@@ -7,11 +7,71 @@
     <title>Planetoid</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="shortcut icon" href="/fav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon/fav.png" type="image/x-icon">
     <link
         href="https://fonts.googleapis.com/css2?family=Honk&family=Micro+5&family=Silkscreen:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
+
+    <style>
+        /* Scroll to Top Button */
+        #scrollButton {
+            position: fixed;
+            bottom: 50px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0; /* Initially hidden */
+            pointer-events: none; /* Prevent interaction when hidden */
+            transition: opacity 0.5s ease; /* Smooth fade-in effect */
+        }
+
+        #scrollButton.visible {
+            opacity: 1; /* Fully visible */
+            pointer-events: auto; /* Enable interaction */
+        }
+
+        .outer-circle {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                #ffffff 0deg,
+                #ffffff var(--scroll-progress, 0deg),
+                #1e65d900 var(--scroll-progress, 0deg),
+                #d5e7ec00 360deg
+            );
+            transform: rotate(-90deg); /* Start animation from top */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .inner-circle {
+            width: 45px;
+            height: 45px;
+            background: black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgb(0 0 0);
+        }
+
+        .arrow {
+            font-size: 40px;
+            color: white;
+            font-weight:bolder;
+            transform: rotate(90deg); /* Fixed direction to the right */
+        }
+    </style>
 </head>
 
 <body>
@@ -31,13 +91,17 @@
             <div class="blur" id="blur"></div>
             <ul id="navbar_list">
                 <li><a href="../../index.html">Home</a></li>
-                <li><a href="tictactoe.html">Tic Tac Toe</a></li>
-                <li><a href="flappyBird.html">Flappy Space Ship</a></li>
-                <li><a href="../pages/space-shooter.html">Space Shooter</a></li>
+
+                <li><a href="/website/pages/tictactoe.html">Tic Tac Toe</a></li>
+                <li><a href="/website/pages/flappyBird.html">Flappy Space Ship</a></li>
                 <li><a href="../../index.html">Planet Dodge</a></li>
                 <!-- <li><a href="stone-paper-scissor.html">Stone Paper Scissor</a></li>
-                <li><a href="alien-catcher.html">Alien Catcher Game</a></li> -->
-                <li><a href="/countributor.html">Meet The Team</a></li>
+                <li><a href="alien-catcher.html">Alien Catcher Game</a></li>
+                es/space-shooter.html">Space Shooter</a></li>
+                <li><a href="/website/pages/break.html">Break Out Game</a>
+                <li><a href="Snake.html">Snake Sphere</a></li> 
+                <li><a href="memory.html">Memory Matching Game</a></li></li>-->
+                <li><a href="/website/pages/countributor.html">Meet The Team</a></li>
             </ul>
 
             <p class="credits" id="credits">Designed & Developed by<br><a href="https://garvitnegi17.github.io/Ongoing/" class="developer">Garvit↗</a> & <a
@@ -70,7 +134,7 @@
             <div class="spots" id="spot5"></div>
             <div class="small_spot" id="small_spot3"></div>
         </div>
-            <div class="glass" id="games_glass"><img src="/ttt.png" alt=""
+            <div class="glass" id="games_glass"><img src="/images/ttt.png" alt=""
                     class="dashboard">
                 <p class="name">Tic Tac Toe</p>
                 <p class="text">&nbsp; &nbsp; &nbsp;Test your strategy and planning skills with the classic Tic Tac Toe game. Play to see who can align three symbols first!</p>
@@ -80,7 +144,7 @@
         <div class="venus">
             <div class="glass" id="games_glass">
 
-                <img src="/pl.png" alt="" class="dashboard">
+                <img src="/images/pl.png" alt="" class="dashboard">
                 <p class="name">Flappy Space Ship</p>
                 <p class="text">&nbsp; &nbsp; &nbsp;Embark on an interstellar journey by navigating your spaceship through a series of challenging obstacles. </p><p>&nbsp; &nbsp; &nbsp;Timing and precision are key—how far can you go?</p>
                 <button class="play_button"><a href="./flappyBird.html">PLAY</a></button>
@@ -119,14 +183,46 @@
             </div>
         </div>
      
+        <div class="earth">
+            <div class="glass" id="games_glass">
+
+                <img src="/images/breakout images/Breakhome.jpg" alt="" class="dashboard">
+                <p class="name">Break Out Game</p>
+                <p class="text">&nbsp; &nbsp; &nbsp;
+                    "Blast through barriers, conquer the cosmos!" ⚽ 🧱</p>
+                <button class="play_button"><a href="break.html">PLAY</a></button>
+            </div>
+        </div>
+
+        <div class="earth">
+            <div class="glass" id="games_glass">
+
+                <img src="/images/Alien_catcher-images/Snake Sphere/snake.jpg" alt="" class="dashboard">
+                <p class="name">Snake Sphere Game</p>
+                <p class="text">&nbsp; &nbsp; &nbsp;
+                    "Snake Your Way Through the Galaxy!" 🌌🐍 </p>
+                <button class="play_button"><a href="Snake.html">PLAY</a></button>
+            </div>
+        </div>
+
+        <div class="earth">
+            <div class="glass" id="games_glass">
+
+                <img src="/images/memory images/memoryback2-ezgif.com-webp-to-jpg-converter.jpg" alt="" class="dashboard">
+                <p class="name">Memory Matching Game</p>
+                <p class="text">&nbsp; &nbsp; &nbsp;
+                    "A universe of memories—flip, find, and conquer space! 🚀🌍" </p>
+                <button class="play_button"><a href="memory.html">PLAY</a></button>
+            </div>
+        </div>
 
         <div class="mars">
             <div class="glass" id="games_glass">
 
-                <img src="/cs1.png" alt="" class="dashboard">
+                <img src="/images/cs1.png" alt="" class="dashboard">
                 <p class="name">Coming Soon</p>
                 <p class="text">&nbsp; &nbsp; &nbsp;Stay Tuned!</p>
-                <button class="play_button"><a href="/countributor.html">PLAY</a></button>
+                <button class="play_button"><a href="/website/pages/countributor.html">PLAY</a></button>
             </div>
         </div>
         
@@ -135,15 +231,55 @@
         <div class="mars">
             <div class="glass" id="games_glass">
 
-                <img src="/cs2.png" alt="" class="dashboard">
+                <img src="/images/cs2.png" alt="" class="dashboard">
                 <p class="name">Coming Soon</p>
                 <p class="text">&nbsp; &nbsp; &nbsp;Stay Tuned!</p>
-                <button class="play_button"><a href="/countributor.html">PLAY</a></button>
+                <button class="play_button"><a href="/website/pages/countributor.html">PLAY</a></button>
             </div>
         </div>
         
 
      </div>
+
+    <!-- Scroll to Top Button -->
+    <div id="scrollButton" class="hidden">
+        <div class="outer-circle">
+            <div class="inner-circle">
+                <div class="arrow">↑</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scrollButton = document.getElementById("scrollButton");
+        const outerCircle = document.querySelector(".outer-circle");
+  
+        // Function to handle scroll behavior
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.scrollY;
+            const scrollHeight =
+                document.documentElement.scrollHeight - window.innerHeight;
+            const scrollProgress = (scrollTop / scrollHeight) * 360;
+  
+            // Show button after scrolling 7-8 lines (~100px)
+            if (scrollTop > 100) {
+                scrollButton.classList.add("visible");
+            } else {
+                scrollButton.classList.remove("visible");
+            }
+  
+            // Update the circular progress
+            outerCircle.style.setProperty(
+                "--scroll-progress",
+                `${scrollProgress}deg`
+            );
+        });
+  
+        // Scroll-to-top functionality
+        scrollButton.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
 
     <script src="../scripts/script.js"></script>
 
