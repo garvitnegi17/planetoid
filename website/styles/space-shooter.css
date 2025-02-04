@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    background-size: cover;
+    color: white;
+  }
+  
+  
+  .game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .menu {
+    text-align: center;
+  }
+  
+  .menu h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .menu .btn {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background: #4caf50;
+    color: rgb(236, 129, 129);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .menu .btn:hover {
+    background: #45a049;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #rules {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    justify-self:center;
+  }
+  
+  .game {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .player {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: url('/images/space-shooter/ship.png') no-repeat center center;
+    background-size: cover;
+    transform: translateX(-50%);
+  }
+  
+  .enemy {
+    position: absolute;
+    top: -50px;
+    width: 70px;
+    height: 70px;
+    background: url('/images/ufo.png') no-repeat center center;
+    background-size: cover;
+  }
+  
+  .bullet {
+    position: absolute;
+    width: 5px;
+    height: 20px;
+    background: yellow;
+    border-radius: 2px;
+  }
+  
+  #score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+  }
+  
+  #game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  #game-over button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  #game-over button:hover {
+    background: #e53935;
+  }
+  
+  @media (max-width: 768px) {
+    .menu h1 {
+      font-size: 2rem;
+    }
+  
+    .menu .btn {
+      font-size: 1rem;
+      padding: 8px 15px;
+    }
+  
+    #rules {
+      font-size: 1rem;
+    }
+  }
+  
