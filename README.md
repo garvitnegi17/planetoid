@@ -78,3 +78,10 @@ Want to make contributions to this project? ✨
 
 | [`Visit Planetoid`](https://planetoid-games.netlify.app/) |
 |-|
+
+## Contributors
+ A huge shoutout to all our wonderful contributors. 
+
+<a href="https://github.com/garvitnegi17/planetoid/graphs/contributors"> 
+  <img src="https://contrib.rocks/image?repo=garvitnegi17/planetoid" />
+</a>
