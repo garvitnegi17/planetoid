@@ -804,15 +804,11 @@ button {
     display: none;
 }
 
-.play_button a{
-    color: white;
+.play_button{background-image: linear-gradient(to right, #393450 0%, #68657a  51%, #393450  100%)}
+.play_button {
     text-decoration: none;
     font-family: monospace;
     font-size: 18px;
-}
-
-.play_button{background-image: linear-gradient(to right, #393450 0%, #68657a  51%, #393450  100%)}
-.play_button {
     position: absolute;
     margin: 10px;
     right: 20px;
