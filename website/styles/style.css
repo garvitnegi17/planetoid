@@ -586,7 +586,7 @@ body {
 
 #games_glass {
     animation-name: none;
-    padding-bottom: 50px;
+    padding-bottom: 65px;
 }
 
 #games_stars {
@@ -804,14 +804,30 @@ button {
     display: none;
 }
 
-.play_button{
-    position: absolute;
-    right: 20px;
-}
-.play_button a{
-    color: white;
+.play_button{background-image: linear-gradient(to right, #393450 0%, #68657a  51%, #393450  100%)}
+.play_button {
     text-decoration: none;
-}
+    font-family: monospace;
+    font-size: 18px;
+    position: absolute;
+    margin: 10px;
+    right: 20px;
+    padding: 8px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.8s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+ }
+
+ .play_button:hover {
+    background-position: right center; 
+    color: #fff;
+    text-decoration: none;
+ }
+
 
 #team_glass{
     animation: none;
