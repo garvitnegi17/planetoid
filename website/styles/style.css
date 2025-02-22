@@ -874,3 +874,105 @@ button {
 
     }
 }
+
+.footer {
+    background: linear-gradient(135deg, #0a0a0a, #1c1c1c);
+    color: white;
+    padding: 30px 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 15px rgba(255, 255, 255, 0.1);
+    font-family: 'Poppins', sans-serif;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Footer Content - Flexbox for better alignment */
+.footer-content {
+    max-width: 1200px;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribute logo and links properly */
+    gap: 20px;
+    transform: translateX(-20px);
+    padding: 0 20px;
+}
+
+/* Logo Styling - More elegant look */
+.footer-logo {
+    width: 130px;  
+    height: auto;
+    transition: transform 0.3s ease-in-out, opacity 0.3s;
+}
+
+.footer-logo:hover {
+    transform: scale(1.1);  /* Slight zoom effect on hover */
+    opacity: 0.9;
+}
+
+/* Wrapper for Links and Text */
+.footer-links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Links List */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Individual Link */
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Hover Effect */
+.footer-links a:hover {
+    color: #00c3ff;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Copyright Text */
+.footer p {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        transform: translateX(0);
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .footer-logo {
+        width: 110px;
+    }
+}
