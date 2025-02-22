@@ -963,16 +963,31 @@ button {
     .footer-content {
         flex-direction: column;
         align-items: center;
-        transform: translateX(0);
         text-align: center;
-    }
-
-    .footer-links {
-        flex-direction: column;
-        gap: 12px;
+        gap: 5px; /* Reduce spacing */
     }
 
     .footer-logo {
-        width: 110px;
+        width: 100px; /* Adjust for better fit */
+        margin-bottom: -5px; /* Reduce space below logo */
+    }
+
+    .footer-links-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px; /* Reduce spacing between buttons */
+    }
+
+    .footer-links a {
+        display: inline-block;
+        width: 160px; /* Ensure uniform button size */
+        padding: 8px;
+        font-size: 14px; /* Adjust font for readability */
+    }
+
+    .footer p {
+        margin-top: 10px;
+        font-size: 12px; /* Adjust font size for mobile */
     }
 }
