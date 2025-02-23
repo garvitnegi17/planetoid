@@ -1,0 +1,125 @@
+body {
+    text-align: center;
+    background-image: url(../../images/Tile_Sequence_images/tile_background.jpg);
+    background-size: cover;
+    color:#d9d9d9;
+}
+
+button {
+    background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460, #0a1931);
+    color: white;
+    margin-bottom: 0.625rem;
+    padding: 0.625rem 1.25rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #0f3460, #16213e, #1a1a2e, #0a1931);
+    box-shadow: 0 0 20px rgba(49, 42, 191, 0.6);
+}
+
+button:active {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #0a1931, #0f3460);
+    box-shadow: none;
+    animation: bounce 0.3s ease-out;
+}
+
+.press-start-2p-regular {
+    font-family: "Press Start 2P", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.flashRed {
+    background: red !important;
+}
+
+.btn {
+    height: 200px;
+    width: 200px;
+    border: 10px solid black;
+    cursor: pointer;
+}
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    opacity:0.9;
+}
+
+.red {
+    background: linear-gradient(135deg, #ff0000, #a50000, #ff4d4d, #800000);
+    border-top-left-radius: 100%;
+    margin: 0 3px 3px 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+}
+
+.yellow {
+    background: linear-gradient(135deg, #ffcc00, #996600, #ffd700, #cc9900);
+    border-bottom-right-radius: 100%;
+
+}
+
+.green {
+    background: linear-gradient(135deg, #00ff00, #008000, #66ff66, #004d00);
+    border-bottom-left-radius: 100%;
+}
+
+.blue {
+    background: linear-gradient(135deg, #007bff, #003d80, #00a2ff, #002b5e);
+    border-top-right-radius: 100%;
+    margin-bottom: 3px;
+}
+
+.flash {
+    background: linear-gradient(45deg, #b5b5b5, #868686, #4d4d4d)!important;
+}
+
+.userFlash {
+    background: linear-gradient(45deg, #888888, #5a5a5a, #2e2e2e) !important;
+}
+
+@media (max-width: 450px) {
+    .box-container {
+
+        width: 80vw;
+        height: 80vw;
+        justify-content: space-evenly;
+    }
+
+    .btn {
+        height: 40vw;
+        width: 40vw;
+        cursor: none;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    h3 {
+        font-size: 1em;
+        margin-top: 50px;
+    }
+
+    button {
+        height: 10vw;
+        width: 25vw;
+        font-size: 3vw;
+        padding: 0.5em 1em;
+    }
+}
