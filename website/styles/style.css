@@ -329,7 +329,7 @@ body {
 }
 
 .title {
-    font-size: 1.7rem;
+    font-size: 2.0rem;
     margin-top: 7px;
     opacity: 1;
     animation-name: slide;
@@ -338,7 +338,7 @@ body {
     font-weight: 600;
     margin-left: 10px;
     font-family: "Silkscreen", sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
 }
 
@@ -467,8 +467,9 @@ body {
     background-color: #7e7e7e32;
     padding: 20px;
     margin: 20px;
-    margin-left: 50px;
-    margin-top: 60px;
+    margin-left: 100px;
+    margin-top: 80px;
+    margin-right: 100px;
     border-radius: 20px;
     backdrop-filter: blur(5px);
     opacity: 1;
@@ -780,7 +781,18 @@ button {
     color: white;
     font-weight: 600;
 }
-
+#home_button{
+    margin-top: 170px;
+    display: flex;
+    flex-direction: row;
+}
+.levelup{
+    margin-top: 55px;
+    margin-right: 5px;
+    align-items: center;
+    font-family: italic;
+    color: #fff;
+}
 .navbar ul li {
     width: 70vw;
     text-align: center;
@@ -894,7 +906,7 @@ button {
     } */
 
     #play img{
-        height: 100px;
+        height: 60px;
     }
 
     #play {
