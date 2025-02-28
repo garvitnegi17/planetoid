@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    scrollbar-width: none;
 }
 
 body {
@@ -15,9 +14,30 @@ body {
     background-position: center;
 }
 
+/* Custom scrollbar styles */
 ::-webkit-scrollbar {
-    opacity: 0;
+    width: 12px; 
+    background: transparent;
 }
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e2a47;
+    border-radius: 10px; 
+    border: 3px solid rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 0 10px 2px rgba(30, 42, 71, 0.8), 0 0 15px 5px rgba(30, 42, 71, 0.6); 
+    transition: background 0.3s ease, box-shadow 0.3s ease; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #16243d;
+    box-shadow: 0 0 20px 5px rgba(30, 42, 71, 1), 0 0 30px 10px rgba(30, 42, 71, 0.7);
+}
+
 
 .loading {
     margin-top: 40vh;
