@@ -40,7 +40,13 @@ Welcome to **Planetoid**, a fun and interactive website featuring a variety of m
 
 - **Mini-Games**  
   - 🎮 Tic-Tac-Toe: A classic strategy game with a stellar twist.  
-  - 🚀 Flappy Space Shuttle: Navigate your shuttle through an asteroid field!  
+  - 🚀 Flappy Space Shuttle: Navigate your shuttle through an asteroid field!
+  - ✂️ Stone Paper Scissors: Challenge the bot to see who the real champion is!
+  - 👽 Alien Catcher Game: Catch the Alien and Save the Galaxy!
+  - 💥 Break Out Game: Blast through barriors and conquer the cosmos!
+  - 🐍 Snake Sphere Game: A classic game of snake and food!
+  - 🧐 Memory Matching Game: Match the tiles and conquer space!
+  - 🧠 Tile Sequence Challenge: Remember the sequence of tiles and test your memory!
 
 - **Space Theme**  
   Immerse yourself in a cosmic experience with stunning visuals inspired by the wonders of the universe.  
